@@ -166,3 +166,6 @@ public class FullscreenActivity extends Activity {
         mHideHandler.postDelayed(mHideRunnable, delayMillis);
     }
 }
+
+
+// test tilføjet kommentar prøver at pushe

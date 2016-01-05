@@ -22,7 +22,7 @@ public class MainManuActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View v) {
         if(v == spilBtn){
-            Intent visLevels = new Intent(this, Level_Activity.class);
+            Intent visLevels = new Intent(this, Spil.class);
             startActivity(visLevels);
             }
     }

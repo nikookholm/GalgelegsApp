@@ -9,4 +9,19 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="s112011.galgelegsapp.Spil">
 
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="SpilViewet"
+        android:id="@+id/overskrift"/>
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+    </FrameLayout>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Spilview"/>
 </RelativeLayout>

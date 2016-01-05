@@ -18,36 +18,30 @@ public class GalgeLogik {
     private boolean sidsteBogstavVarKorrekt;
     private boolean spilletErVundet;
     private boolean spilletErTabt;
+    private int level;
 
 
     public ArrayList<String> getBrugteBogstaver() {
         return brugteBogstaver;
     }
 
-    public String getSynligtOrd() {
-        return synligtOrd;
-    }
-
+    public String getSynligtOrd() {return synligtOrd;}
+    public int getLevel(){return level;}
     public String getOrdet() {
         return ordet;
     }
-
     public int getAntalForkerteBogstaver() {
         return antalForkerteBogstaver;
     }
-
     public boolean erSidsteBogstavKorrekt() {
         return sidsteBogstavVarKorrekt;
     }
-
     public boolean erSpilletVundet() {
         return spilletErVundet;
     }
-
     public boolean erSpilletTabt() {
         return spilletErTabt;
     }
-
     public boolean erSpilletSlut() {
         return spilletErTabt || spilletErVundet;
     }
@@ -122,5 +116,8 @@ public class GalgeLogik {
         if (spilletErTabt) System.out.println("- SPILLET ER TABT");
         if (spilletErVundet) System.out.println("- SPILLET ER VUNDET");
         System.out.println("---------- ");
+    }
+    public void setLevel(int level ){
+        this.level = level;
     }
 }

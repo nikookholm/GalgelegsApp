@@ -33,10 +33,10 @@ public class Level_fragment extends Fragment implements View.OnClickListener {
         Button letButton = (Button) root.findViewById(R.id.letButton);
         letButton.setOnClickListener(this);
 
-        Button midButton = (Button) root.findViewById(R.id.middelButton);
+        Button middelButton = (Button) root.findViewById(R.id.middelButton);
         middelButton.setOnClickListener(this);
 
-        Button svæButton = (Button) root.findViewById(R.id.sværtButton);
+        Button svæButton = (Button) root.findViewById(R.id.sværButton);
         svæButton.setOnClickListener(this);
         return root;
 

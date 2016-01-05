@@ -12,7 +12,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/OverskriftBillede"
-        android:src="@drawable/"/>
+        android:src="@drawable/hangman_main_menu_pic"/>
 
     <Button
         android:layout_width="fill_parent"

@@ -17,12 +17,14 @@ import android.widget.Button;
 public class Level_fragment extends Fragment implements View.OnClickListener {
 
     private Button letButton, middelButton, sværButton;
-
+    private Spil spil;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+
+        spil = (Spil)getActivity();
 
         // Inflate the layout for this fragment
 
@@ -37,21 +39,21 @@ public class Level_fragment extends Fragment implements View.OnClickListener {
         Button svæButton = (Button) root.findViewById(R.id.sværtButton);
         svæButton.setOnClickListener(this);
         return root;
+
+
     }
 
 
     @Override
     public void onClick(View v) {
         if(v==letButton){
-
+            spil.logik.setLevel(1);
         }
-
         if(v==middelButton){
-
+            spil.logik.setLevel(2);
         }
-
         if(v==sværButton) {
-
+            spil.logik.setLevel(3);
         }
     }
 }

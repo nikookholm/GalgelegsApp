@@ -13,6 +13,7 @@ public class Spil extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spil);
 
+
         Fragment fragment = new Level_fragment();
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.fragment, fragment).commit();

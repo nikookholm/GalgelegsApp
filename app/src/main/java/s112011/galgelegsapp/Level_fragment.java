@@ -56,4 +56,12 @@ public class Level_fragment extends Fragment implements View.OnClickListener {
             spil.logik.setLevel(3);
         }
     }
+
+    //public void startSpil(){
+   //    starte galgelogikken
+   //    skifte fragment level til billede
+    //   Oprette Ordlinje
+    //   skifte tomt fragment til tastetur
+
+
 }

@@ -1,0 +1,24 @@
+Krav til app’en
+Applikationen skal være anvendelig og formålstjenlig, dvs. indeholde brugsscenarier, der opfylder nogle konkrete behov hos en konkret målgruppe.
+Der stilles følgende krav til besvarelsen:
+Der anvendes aktiviteter og services eller broadcast recievers.
+
+Der bruges mindst 6 af følgende:
+Lister og adaptere,                        + High score vises med Liste og adapter
+Application-objekt,                        - Kunne være god til at gemme noget information i
+sensorer,                                  -  Har snakket om at man kan reset ved at ryste, eller animationen skal bevæges ved ryst
+netværkskomminikation,                     + Planlagt med adgang til firebase highscore
+baggrundstråde f.eks. med AsyncTask,       + Netværkskommunikation hentes herfra
+SharedPreferences,                         - Kan bruges til at gemme login oplysninger
+broadcast receivers,
+services,                                 + Google+ konto validering
+fragmenter                                + Spil aktiviteten kommer til at indeholde fragmenter
+
+Applikationen skal være brugervenlig og overholde interaktionprincipperne på den pågældende platform og være godt struktureret.
+Løsningen (implementationen) skal have en god og vedligeholdelsesvenlig struktur. Programlogik skal holdes adskilt fra brugergrænsefladen. Dog må løsningen gerne bære præg af at den har gennemgået en løbende udvikling gennem kurset og at dele af løsningen ikke er gjort færdige.
+App’en skal kunne installeres på, og fungere i et vist omfang, på en telefon med Android 5.0, med mindre der er en god grund til andet.
+(i app/build.gradle: minSdkVersion 21)
+
+Brug if (Build.VERSION.SDK_INT>21) til kode, der er nyere end Android 5.
+Rapporten skal (evt. i bilag eller på planchen) indeholde en udskrift af de forskellige skærmbilleder (sådan at man kan få et indtryk af applikationens funktioner ved udelukkende at læse rapporten)
+Evt. resterende problemer skal forklares

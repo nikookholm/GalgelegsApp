@@ -29,7 +29,10 @@
         <activity
             android:name=".MainManuActivity"
             android:label="Hovedmenu" />
-        <activity android:name=".Spil"></activity>
+        <activity android:name=".Spil" />
+        <activity android:name=".Indstillinger_Activity" />
+        <activity android:name=".HighScores_Activity" />
+        <activity android:name=".Feedback_Activity"></activity>
     </application>
 
 </manifest>

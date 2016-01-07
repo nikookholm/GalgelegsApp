@@ -35,4 +35,10 @@ public class Spil extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
+
+    public void setLowFrame(Fragment fragment){
+        Fragment frag = fragment;
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.fragmentKeyboard, fragment).commit();
+    }
 }

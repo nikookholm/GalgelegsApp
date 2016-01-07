@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
-
+import android.support.v4.app.Fragment;
 
 public class Spil extends AppCompatActivity {
 
@@ -22,12 +22,9 @@ public class Spil extends AppCompatActivity {
         //Toolbar will now take on default Action Bar characteristics
         setSupportActionBar(toolbar);
 
-
-
-
         Fragment fragment = new Level_fragment();
         getSupportFragmentManager().beginTransaction()
-                .add(R.id.fragment, fragment).commit();
+                .add(R.id.fragmentGalge, fragment).commit();
     }
 
     @Override
@@ -36,9 +33,17 @@ public class Spil extends AppCompatActivity {
         return true;
     }
 
-    public void setLowFrame(Fragment fragment){
-        Fragment frag = fragment;
-        getSupportFragmentManager().beginTransaction()
-                .add(R.id.fragmentKeyboard, fragment).commit();
+    public void startSpil(){
+
+        Fragment keyboard = new Keyboard();
+        getSupportFragmentManager().beginTransaction().add(R.id.fragmentKeyboard, keyboard).commit();
+
+        logik.nulstil();
+        //    starte galgelogikken
+        //    skifte fragment level til billede
+        //   Oprette Ordlinje
+        //   skifte tomt fragment til tastetur
+
     }
+
 }

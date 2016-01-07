@@ -1,6 +1,7 @@
 package s112011.galgelegsapp;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -42,13 +43,12 @@ public class Level_fragment extends Fragment implements View.OnClickListener {
         svæButton.setOnClickListener(this);
         return root;
 
-
     }
-
-
     @Override
     public void onClick(View v) {
         if(v==letButton){
+            Keyboard goToKeyboard = new Keyboard();
+            getFragmentManager().beginTransaction().add(R.id.fragmentKeyboard, goToKeyboard);
             spil.logik.setLevel(1);
         }
         if(v==middelButton){
@@ -58,12 +58,4 @@ public class Level_fragment extends Fragment implements View.OnClickListener {
             spil.logik.setLevel(3);
         }
     }
-
-    //public void startSpil(){
-   //    starte galgelogikken
-   //    skifte fragment level til billede
-    //   Oprette Ordlinje
-    //   skifte tomt fragment til tastetur
-
-
 }

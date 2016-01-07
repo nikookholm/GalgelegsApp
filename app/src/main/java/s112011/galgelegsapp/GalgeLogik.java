@@ -19,8 +19,9 @@ public class GalgeLogik {
     private boolean spilletErVundet;
     private boolean spilletErTabt;
     private int level;
-
-
+    private ArrayList<String> letOrd = new ArrayList<String>();
+    private ArrayList<String> middelOrd = new ArrayList<String>();
+    private ArrayList<String> sværOrd = new ArrayList<String>();
     public ArrayList<String> getBrugteBogstaver() {
         return brugteBogstaver;
     }
@@ -47,16 +48,35 @@ public class GalgeLogik {
     }
 
 
-    public GalgeLogik() {
-        muligeOrd.add("bil");
-        muligeOrd.add("computer");
-        muligeOrd.add("programmering");
-        muligeOrd.add("motorvej");
-        muligeOrd.add("busrute");
-        muligeOrd.add("gangsti");
-        muligeOrd.add("skovsnegl");
-        muligeOrd.add("solsort");
+//    public GalgeLogik() {
+//        muligeOrd.add("bil");
+//        muligeOrd.add("computer");
+//        muligeOrd.add("programmering");
+//        muligeOrd.add("motorvej");
+//        muligeOrd.add("busrute");
+//        muligeOrd.add("gangsti");
+//        muligeOrd.add("skovsnegl");
+//        muligeOrd.add("solsort");
+//        nulstil();
+//    }
+
+    public void letOrdValg(){
+        letOrd.add("hej");
+        letOrd.add("dav");
         nulstil();
+    }
+
+    public void middelOrdvalg(){
+        middelOrd.add("sjov");
+        middelOrd.add("vinter");
+        nulstil();
+    }
+
+    public void sværOrdValg(){
+        sværOrd.add("medlemskab");
+        sværOrd.add("refleksion");
+        nulstil();
+
     }
 
     public void nulstil() {

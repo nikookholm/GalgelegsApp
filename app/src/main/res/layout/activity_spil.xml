@@ -25,11 +25,12 @@
     <FrameLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/fragment">
+        android:id="@+id/fragmentGalge">
     </FrameLayout>
 
-    <TextView
+    <FrameLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Spilview"/>
+        android:id="@+id/fragmentKeyboard">
+        </FrameLayout>
 </LinearLayout>

@@ -2,16 +2,17 @@ package s112011.galgelegsapp;
 
 import android.support.v4.app.Fragment;
 
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
-import android.support.v4.app.Fragment;
+
 
 public class Spil extends AppCompatActivity {
 
    static GalgeLogik logik = new GalgeLogik();
-
+    FragmentTransaction transaction;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,9 +23,14 @@ public class Spil extends AppCompatActivity {
         //Toolbar will now take on default Action Bar characteristics
         setSupportActionBar(toolbar);
 
+HighScoreDAO dao = new HighScoreDAO();
+
+
         Fragment fragment = new Level_fragment();
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.fragmentGalge, fragment).commit();
+
+        transaction = getSupportFragmentManager().beginTransaction();
     }
 
     @Override
@@ -33,16 +39,8 @@ public class Spil extends AppCompatActivity {
         return true;
     }
 
-    public void startSpil(){
-
-        Fragment keyboard = new Keyboard();
-        getSupportFragmentManager().beginTransaction().add(R.id.fragmentKeyboard, keyboard).commit();
-
-        logik.nulstil();
-        //    starte galgelogikken
-        //    skifte fragment level til billede
-        //   Oprette Ordlinje
-        //   skifte tomt fragment til tastetur
-
-    }
+    public void setLowFrame(){
+        Fragment frag = new Keyboard();
+      transaction.add(R.id.fragmentKeyboard, new Keyboard()).commit();
+}
 }

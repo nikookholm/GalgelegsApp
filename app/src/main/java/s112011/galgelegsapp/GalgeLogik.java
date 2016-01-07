@@ -138,6 +138,6 @@ public class GalgeLogik {
         System.out.println("---------- ");
     }
     public void setLevel(int level ){
-        this.level = level;
+        this.level = level; System.out.println("Whaaat");
     }
 }

@@ -30,7 +30,8 @@
             android:name=".MainManuActivity"
             android:label="Hovedmenu" />
         <activity android:name=".Spil" />
-        <activity android:name=".Indstillinger_Activity" />
+        <activity android:name=".Indstillinger_Activity"
+            android:label="Indstillinger"/>
         <activity android:name=".HighScores_Activity" />
         <activity android:name=".Feedback_Activity"></activity>
     </application>

@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import java.security.Key;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -47,9 +49,9 @@ public class Level_fragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         if(v==letButton){
-            Keyboard goToKeyboard = new Keyboard();
-            getFragmentManager().beginTransaction().add(R.id.fragmentKeyboard, goToKeyboard);
-            spil.logik.setLevel(1);
+            Fragment goToKeyboard = new Keyboard();
+            spil.getSupportFragmentManager().beginTransaction().add(R.id.fragmentKeyboard, goToKeyboard);
+//            spil.logik.setLevel(1);
         }
         if(v==middelButton){
             spil.logik.setLevel(2);

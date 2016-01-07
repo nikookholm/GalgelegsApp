@@ -45,5 +45,4 @@ public class Spil extends AppCompatActivity {
         //   skifte tomt fragment til tastetur
 
     }
-
 }

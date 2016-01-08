@@ -26,4 +26,8 @@ public class HighScoreDAO {
           System.out.println(highscores.get(i).getName() + " " + highscores.get(i).getPoints());
       }
     }
+
+    public ArrayList<HighScoreDTO> getScores(){
+        return highscores;
+    }
 }

@@ -50,6 +50,7 @@ public class Level_fragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         if(v==letButton){
+            spil.setLowFrame();
             spil.logik.setLevel(1);
 
         }

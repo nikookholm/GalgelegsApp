@@ -14,7 +14,7 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Keyboard extends Fragment implements View.OnClickListener {
+public class Spil_fragment extends Fragment implements View.OnClickListener {
 
     private Button bq,bw,be,br,bt,by,bu,bi,bo,bp,bå,ba,bs,bd,bf,bg,bh,bj,bk,bl,bæ,bø,
     bz,bx,bc,bv,bb,bn,bm;
@@ -25,7 +25,7 @@ public class Keyboard extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View root = inflater.inflate(R.layout.fragment_keyboard, container, false);
+        View root = inflater.inflate(R.layout.Spil_fragment, container, false);
 
         Button bq = (Button) root.findViewById(R.id.btnQ);
         bq.setOnClickListener(this);

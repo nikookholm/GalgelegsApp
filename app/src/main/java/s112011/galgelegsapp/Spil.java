@@ -46,7 +46,7 @@ HighScoreDAO dao = new HighScoreDAO();
     }
 
     public void fragmentFrame(){
-        Fragment frag = new spil_Fragment();
+        Fragment frag = new Spil_fragment();
       transaction.add(R.id.fragmentKeyboard, frag).commit();
 }
 

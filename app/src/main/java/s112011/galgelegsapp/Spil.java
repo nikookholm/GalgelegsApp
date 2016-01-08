@@ -11,7 +11,13 @@ import android.view.Menu;
 
 public class Spil extends AppCompatActivity {
 
-   static GalgeLogik logik = new GalgeLogik();
+    // int array der indeholder button ID'erne
+    int[] buttonIDs = new int[]{R.id.btnA, R.id.btnB, R.id.btnC, R.id.btnD, R.id.btnE,
+            R.id.btnF, R.id.btnG, R.id.btnH, R.id.btnI, R.id.btnJ, R.id.btnK, R.id.btnL,
+           };
+
+
+    static GalgeLogik logik = new GalgeLogik();
     FragmentTransaction transaction;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +47,10 @@ HighScoreDAO dao = new HighScoreDAO();
 
     public void setLowFrame(){
         Fragment frag = new Keyboard();
-      transaction.add(R.id.fragmentKeyboard, new Keyboard()).commit();
+      transaction.add(R.id.fragmentKeyboard, frag).commit();
 }
+    public void setUpperFrame(){
+        Fragment frag = new Galge_fragment();
+        transaction.add(R.id.fragmentKeyboard, frag).commit();
+    }
 }

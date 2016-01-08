@@ -13,7 +13,7 @@ public class Spil extends AppCompatActivity {
 
     // int array der indeholder button ID'erne
     int[] buttonIDs = new int[]{R.id.btnA, R.id.btnB, R.id.btnC, R.id.btnD, R.id.btnE,
-            R.id.btnF, R.id.btnG, R.id.btnH, R.id.btnI, R.id.btnJ, R.id.btnK, R.id.btnL,
+            R.id.btnF, R.id.btnG, R.id.btnH, R.id.btnI, R.id.btnJ, R.id.btnK, R.id.btnL,R.id.btnM,R.id.btnN
            };
 
 

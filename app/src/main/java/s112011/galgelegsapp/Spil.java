@@ -45,12 +45,9 @@ HighScoreDAO dao = new HighScoreDAO();
         return true;
     }
 
-    public void setLowFrame(){
-        Fragment frag = new Keyboard();
+    public void fragmentFrame(){
+        Fragment frag = new spil_Fragment();
       transaction.add(R.id.fragmentKeyboard, frag).commit();
 }
-    public void setUpperFrame(){
-        Fragment frag = new Galge_fragment();
-        transaction.add(R.id.fragmentKeyboard, frag).commit();
-    }
+
 }

@@ -31,3 +31,4 @@ public class HighScoreDAO {
         return highscores;
     }
 }
+

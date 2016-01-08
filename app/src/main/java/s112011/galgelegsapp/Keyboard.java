@@ -116,11 +116,8 @@ public class Keyboard extends Fragment implements View.OnClickListener {
         return root;
     }
 
-
     @Override
     public void onClick(View v) {
-
-
 
     }
 }

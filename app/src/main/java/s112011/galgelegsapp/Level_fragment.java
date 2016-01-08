@@ -33,7 +33,7 @@ public class Level_fragment extends Fragment implements View.OnClickListener {
 
         View root = inflater.inflate(R.layout.fragment_level, container, false);
 
-       letButton = (Button) root.findViewById(R.id.letButton);
+        letButton = (Button) root.findViewById(R.id.letButton);
         letButton.setOnClickListener(this);
 
         middelButton = (Button) root.findViewById(R.id.middelButton);

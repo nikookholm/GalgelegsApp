@@ -25,7 +25,7 @@ public class Spil_fragment extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View root = inflater.inflate(R.layout.Spil_fragment, container, false);
+        View root = inflater.inflate(R.layout.spil_fragment, container, false);
 
         Button bq = (Button) root.findViewById(R.id.btnQ);
         bq.setOnClickListener(this);

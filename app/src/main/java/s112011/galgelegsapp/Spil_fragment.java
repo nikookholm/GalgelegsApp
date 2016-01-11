@@ -30,7 +30,7 @@ public class Spil_fragment extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View root = inflater.inflate(R.layout.spillet_fragment, container, false);
+        View root = inflater.inflate(R.layout.spil_fragment, container, false);
 
         int[] buttonId = new int[]{R.id.btnQ, R.id.btnW, R.id.btnE, R.id.btnR, R.id.btnT, R.id.btnY, R.id.btnU,
                 R.id.btnI, R.id.btnO, R.id.btnP, R.id.btnÅ, R.id.btnA, R.id.btnS, R.id.btnD, R.id.btnF, R.id.btnG,

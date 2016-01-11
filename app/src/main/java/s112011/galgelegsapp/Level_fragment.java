@@ -17,10 +17,7 @@ import android.widget.Button;
 public class Level_fragment extends Fragment implements View.OnClickListener {
 
     private Button letButton, middelButton, sværButton;
-
-    // Aktiviteten Spil kender til galgelogikken, derfor skal der oprettes et spilobjekt i fragmenten
     private Spil spil;
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -52,12 +49,17 @@ public class Level_fragment extends Fragment implements View.OnClickListener {
         if(v==letButton){
             spil.fragmentFrame();
             spil.logik.setLevel(1);
+
         }
         if(v==middelButton){
             spil.logik.setLevel(2);
+            spil.fragmentFrame();
+
         }
         if(v==sværButton) {
             spil.logik.setLevel(3);
+            spil.fragmentFrame();
+
         }
     }
 

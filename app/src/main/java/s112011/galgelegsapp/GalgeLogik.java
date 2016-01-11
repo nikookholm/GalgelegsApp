@@ -63,29 +63,53 @@ public class GalgeLogik {
     public void letOrdValg(){
         letOrd.add("hej");
         letOrd.add("dav");
-        nulstil();
     }
 
     public void middelOrdvalg(){
         middelOrd.add("sjov");
         middelOrd.add("vinter");
-        nulstil();
     }
 
     public void sværOrdValg(){
         sværOrd.add("medlemskab");
         sværOrd.add("refleksion");
-        nulstil();
 
     }
 
     public void nulstil() {
+
         brugteBogstaver.clear();
+        antalForkerteBogstaver = 0;
+        spilletErTabt = false;
+        spilletErVundet = false;
+
+        switch(level){
+
+            case 1: level = 1;
+
+                ordet = letOrd.get(new Random().nextInt(letOrd.size()));
+
+                break;
+
+            case 2: level = 2;
+
+                ordet = middelOrd.get(new Random().nextInt(middelOrd.size()));
+
+                break;
+
+            case 3: level = 3;
+
+                ordet = sværOrd.get(new Random().nextInt(sværOrd.size()));
+
+                break;
+        }
+
+        /*brugteBogstaver.clear();
         antalForkerteBogstaver = 0;
         spilletErVundet = false;
         spilletErTabt = false;
         ordet = muligeOrd.get(new Random().nextInt(muligeOrd.size()));
-        opdaterSynligtOrd();
+        opdaterSynligtOrd();*/
     }
 
 

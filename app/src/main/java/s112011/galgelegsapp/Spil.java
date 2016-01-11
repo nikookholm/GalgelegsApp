@@ -28,7 +28,7 @@ HighScoreDAO dao = new HighScoreDAO();
 
         Fragment fragment = new Level_fragment();
         getSupportFragmentManager().beginTransaction()
-                .add(R.id.fragmentGalge, fragment).commit();
+                .add(R.id.fragmentKeyboard, fragment).commit();
 
         transaction = getSupportFragmentManager().beginTransaction();
     }
@@ -41,7 +41,7 @@ HighScoreDAO dao = new HighScoreDAO();
 
     public void fragmentFrame(){
         Fragment frag = new Spil_fragment();
-      transaction.add(R.id.fragmentKeyboard, frag).commit();
+      transaction.replace(R.id.fragmentKeyboard, frag).commit();
 }
 
 }

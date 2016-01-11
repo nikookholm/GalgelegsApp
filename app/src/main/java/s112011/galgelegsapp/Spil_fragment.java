@@ -19,7 +19,8 @@ public class Spil_fragment extends Fragment implements View.OnClickListener {
             bz, bx, bc, bv, bb, bn, bm;
     private ImageView imageView;
     private TextView textView;
-    Spil spil;
+    Spil spil = new Spil();
+
     private int[] galgeBilled = new int[]{R.mipmap.galge, R.mipmap.forkert1, R.mipmap.forkert2, R.mipmap.forkert3,
             R.mipmap.forkert4, R.mipmap.forkert5, R.mipmap.forkert6, R.mipmap.finalpic};
 
@@ -47,6 +48,11 @@ public class Spil_fragment extends Fragment implements View.OnClickListener {
         textView = (TextView) root.findViewById(R.id.ordTextView);
 
         return root;
+    }
+
+    public void startSpil(){
+        spil.logik.nulstil();
+
     }
 
     @Override

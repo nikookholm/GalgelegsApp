@@ -16,18 +16,6 @@
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="SpilViewet"
-        android:id="@+id/overskrift"/>
-
-    <FrameLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/fragmentGalge">
-    </FrameLayout>
-
     <FrameLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

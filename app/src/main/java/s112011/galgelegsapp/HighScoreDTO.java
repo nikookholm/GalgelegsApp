@@ -9,6 +9,9 @@ public class HighScoreDTO implements Comparable<HighScoreDTO> {
 
     String name;
     int points;
+    public HighScoreDTO(){
+    }
+
 
     public HighScoreDTO(String name, int points) {
         this.name = name;

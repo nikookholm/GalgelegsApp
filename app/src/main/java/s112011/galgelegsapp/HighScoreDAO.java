@@ -11,24 +11,23 @@ import java.util.Comparator;
  */
 public class HighScoreDAO {
 
-    ArrayList<HighScoreDTO> highscores;
+    public ArrayList<HighScoreDTO> highscores  = new ArrayList<>();
+    ArrayList<Runnable> observatører = new ArrayList<>();
 
 
     public HighScoreDAO(){
-        highscores = new ArrayList<>();
-        for (int i = 0; i<10; i++ ){
-            highscores.add(new HighScoreDTO("Navn"+i, 68*i));
+
+//        for (int i = 0; i<10; i++ ){
+//            highscores.add(new HighScoreDTO("Navn"+i, 68*i));
         }
 
-        Collections.sort(highscores, HighScoreDTO.highScoreCompare);
-
-      for (int i = 0; i < 10; i++){
-          System.out.println(highscores.get(i).getName() + " " + highscores.get(i).getPoints());
-      }
-    }
 
     public ArrayList<HighScoreDTO> getScores(){
         return highscores;
+    }
+
+    public void addHighscore(HighScoreDTO score){
+        highscores.add(score);
     }
 }
 

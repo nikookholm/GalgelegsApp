@@ -10,37 +10,57 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
+
 import java.util.ArrayList;
 
-public class HighScores_Activity extends AppCompatActivity {
+public class HighScores_Activity extends AppCompatActivity implements Runnable {
 
     HighScoreDAO highScoresDAO = new HighScoreDAO();
     ArrayList<HighScoreDTO> highScores = highScoresDAO.getScores();
-
+    ListView list;
+    ArrayAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_high_scores_);
 
-        ArrayAdapter adapter = new ArrayAdapter(this, R.layout.highscore_elements, R.id.playerName, highScores) {
+        // Get a reference to our posts
+        Firebase ref = new Firebase("https://galgeapp.firebaseio.com/highscores");
+
+        // Attach an listener to read the data at our posts reference
+
+        ref.addValueEventListener(new ValueEventListener() {
             @Override
-            public View getView(int position, View cachedView, ViewGroup parent) {
-                View view = super.getView(position, cachedView, parent);
-
-                TextView rank = (TextView) view.findViewById(R.id.rank);
-                rank.setText("" + (position + 1));
-
-                TextView name = (TextView) view.findViewById(R.id.playerName);
-                name.setText(highScores.get(position).getName());
-
-                TextView points = (TextView) view.findViewById(R.id.antalPoint);
-                points.setText("" + highScores.get(position).getPoints());
-
-                return view;
+            public void onDataChange(DataSnapshot snapshot) {
+                System.out.println("There are " + snapshot.getChildrenCount() + " entries");
+                for (DataSnapshot postSnapshot : snapshot.getChildren()) {
+                    HighScoreDTO post = postSnapshot.getValue(HighScoreDTO.class);
+                    highScoresDAO.addHighscore(post);
+                }
+                for (Runnable r: highScoresDAO.observatører) {
+                    r.run();
+                }
             }
-        };
 
-        ListView list = (ListView) findViewById(R.id.listView);
-        list.setAdapter(adapter);
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+                System.out.println("The read failed: " + firebaseError.getMessage());
+            }
+        });
+
+        System.out.println(highScoresDAO.getScores().size());
+
+    }
+
+    @Override
+    public void run() {
+        list = (ListView) findViewById(R.id.listView);
+        list.setAdapter(new HighScoreAdapter(this, highScoresDAO.getScores()){
+
+        });
     }
 }

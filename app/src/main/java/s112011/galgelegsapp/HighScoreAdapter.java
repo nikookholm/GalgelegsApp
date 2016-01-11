@@ -18,18 +18,17 @@ class HighScoreAdapter extends ArrayAdapter<HighScoreDTO> {
 
     Activity context;
     ArrayList<HighScoreDTO> highscores;
-    int idLayoutResource;
 
-    public HighScoreAdapter(Activity context,int idLayoutResource, ArrayList<HighScoreDTO> highscores) {
+
+    public HighScoreAdapter(Activity context, ArrayList<HighScoreDTO> highscores) {
         super(context, R.layout.highscore_elements);
-        this.idLayoutResource = idLayoutResource;
         this.context = context;
         this.highscores = highscores;
     }
     @Override
     public View getView(int position, View view, ViewGroup parent) {
         LayoutInflater inflater = ((Activity)context).getLayoutInflater();
-        View rowView= inflater.inflate(idLayoutResource,parent,false);
+        View rowView= inflater.inflate(R.layout.highscore_elements,parent,false);
 
 
         TextView rank = (TextView) rowView.findViewById(R.id.rank);

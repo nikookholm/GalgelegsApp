@@ -52,7 +52,6 @@ public class Level_fragment extends Fragment implements View.OnClickListener {
         if(v==letButton){
             spil.fragmentFrame();
             spil.logik.setLevel(1);
-
         }
         if(v==middelButton){
             spil.logik.setLevel(2);
@@ -61,12 +60,5 @@ public class Level_fragment extends Fragment implements View.OnClickListener {
             spil.logik.setLevel(3);
         }
     }
-
-    //public void startSpil(){
-   //    starte galgelogikken
-   //    skifte fragment level til billede
-    //   Oprette Ordlinje
-    //   skifte tomt fragment til tastetur
-
 
 }

@@ -49,17 +49,18 @@ public class Level_fragment extends Fragment implements View.OnClickListener {
         if(v==letButton){
             spil.fragmentFrame();
             spil.logik.setLevel(1);
+            spil.startSpil();
 
         }
         if(v==middelButton){
             spil.logik.setLevel(2);
             spil.fragmentFrame();
-
+            spil.startSpil();
         }
         if(v==sværButton) {
             spil.logik.setLevel(3);
             spil.fragmentFrame();
-
+            spil.startSpil();
         }
     }
 

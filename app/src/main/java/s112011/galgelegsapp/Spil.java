@@ -20,10 +20,7 @@ public class Spil extends AppCompatActivity {
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //Toolbar will now take on default Action Bar characteristics
         setSupportActionBar(toolbar);
-
-HighScoreDAO dao = new HighScoreDAO();
 
 
         Fragment fragment = new Level_fragment();
@@ -41,7 +38,11 @@ HighScoreDAO dao = new HighScoreDAO();
 
     public void fragmentFrame(){
         Fragment frag = new Spil_fragment();
-      transaction.replace(R.id.fragmentKeyboard, frag).commit();
+        transaction.replace(R.id.fragmentKeyboard, frag).commit();
 }
+    public void startSpil(){
+       logik.nulstil();
+
+    }
 
 }

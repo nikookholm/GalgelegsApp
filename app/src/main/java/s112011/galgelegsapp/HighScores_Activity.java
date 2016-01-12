@@ -1,5 +1,6 @@
 package s112011.galgelegsapp;
 
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,16 +18,23 @@ import com.firebase.client.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class HighScores_Activity extends AppCompatActivity implements Runnable {
+public class HighScores_Activity extends AppCompatActivity {
 
-    HighScoreDAO highScoresDAO = new HighScoreDAO();
+   static HighScoreDAO highScoresDAO = new HighScoreDAO();
     ArrayList<HighScoreDTO> highScores = highScoresDAO.getScores();
-    ListView list;
-    ArrayAdapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_high_scores_);
+
+
+        Fragment frag = new highscore_fragment();
+        getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.frame, frag)
+                .commit();
+
 
         // Get a reference to our posts
         Firebase ref = new Firebase("https://galgeapp.firebaseio.com/highscores");
@@ -36,14 +44,21 @@ public class HighScores_Activity extends AppCompatActivity implements Runnable {
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
+                ArrayList<HighScoreDTO> temp = new ArrayList();
                 System.out.println("There are " + snapshot.getChildrenCount() + " entries");
                 for (DataSnapshot postSnapshot : snapshot.getChildren()) {
                     HighScoreDTO post = postSnapshot.getValue(HighScoreDTO.class);
-                    highScoresDAO.addHighscore(post);
+                    temp.add(post);
+
                 }
-                for (Runnable r: highScoresDAO.observatører) {
+
+                highScoresDAO.highscores = temp;
+                temp = null;
+
+                for (Runnable r : highScoresDAO.observatører) {
                     r.run();
                 }
+
             }
 
             @Override
@@ -52,15 +67,9 @@ public class HighScores_Activity extends AppCompatActivity implements Runnable {
             }
         });
 
-        System.out.println(highScoresDAO.getScores().size());
+
 
     }
 
-    @Override
-    public void run() {
-        list = (ListView) findViewById(R.id.listView);
-        list.setAdapter(new HighScoreAdapter(this, highScoresDAO.getScores()){
 
-        });
-    }
 }

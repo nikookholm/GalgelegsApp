@@ -48,17 +48,12 @@ public class GalgeLogik {
     }
 
 
-//    public GalgeLogik() {
-//        muligeOrd.add("bil");
-//        muligeOrd.add("computer");
-//        muligeOrd.add("programmering");
-//        muligeOrd.add("motorvej");
-//        muligeOrd.add("busrute");
-//        muligeOrd.add("gangsti");
-//        muligeOrd.add("skovsnegl");
-//        muligeOrd.add("solsort");
-//        nulstil();
-//    }
+    public GalgeLogik() {
+
+        letOrdValg();
+        middelOrdvalg();
+        sværOrdValg();
+    }
 
     public void letOrdValg(){
         letOrd.add("hej");
@@ -88,6 +83,7 @@ public class GalgeLogik {
             case 1: level = 1;
 
                 ordet = letOrd.get(new Random().nextInt(letOrd.size()));
+                System.out.println(getOrdet());
 
                 break;
 
@@ -129,6 +125,7 @@ public class GalgeLogik {
     }
 
     public void gætBogstav(String bogstav) {
+        bogstav = bogstav.toLowerCase();
         if (bogstav.length() != 1) return;
         System.out.println("Der gættes på bogstavet: " + bogstav);
         if (brugteBogstaver.contains(bogstav)) return;

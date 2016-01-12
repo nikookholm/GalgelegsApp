@@ -17,12 +17,11 @@ public class HighScoreDAO {
 
     public HighScoreDAO(){
 
-//        for (int i = 0; i<10; i++ ){
-//            highscores.add(new HighScoreDTO("Navn"+i, 68*i));
         }
 
 
     public ArrayList<HighScoreDTO> getScores(){
+        Collections.sort(highscores, HighScoreDTO.highScoreCompare);
         return highscores;
     }
 

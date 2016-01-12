@@ -28,9 +28,7 @@ public class GalgeLogik {
 
     public String getSynligtOrd() {return synligtOrd;}
     public int getLevel(){return level;}
-    public String getOrdet() {
-        return ordet;
-    }
+    public String getOrdet() {return ordet;}
     public int getAntalForkerteBogstaver() {
         return antalForkerteBogstaver;
     }

@@ -45,6 +45,7 @@ public class Spil_fragment extends Fragment implements View.OnClickListener {
 
 
         imageView = (ImageView) root.findViewById(R.id.galgeView);
+        imageView.setImageResource(galgeBilled[0]);
         synligtOrdText = (TextView) root.findViewById(R.id.ordTextView);
 
         return root;
@@ -55,6 +56,7 @@ public class Spil_fragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
        spil.logik.gætBogstav(((Button) v).getText().toString());
+        imageView.setImageResource(galgeBilled[spil.logik.getAntalForkerteBogstaver()]);
         synligtOrdText.setText(spil.logik.getSynligtOrd());
 
 

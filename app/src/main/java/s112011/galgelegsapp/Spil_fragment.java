@@ -68,7 +68,8 @@ public class Spil_fragment extends Fragment implements View.OnClickListener {
     }
     private void evaluerSpil(){
         if(spil.logik.erSpilletSlut()){
-            Fragment result = new Result_Fragment();
+            Fragment result = new Result_Fragment()
+                    ;
             spil.fragmentFrame(result);
         }
     }

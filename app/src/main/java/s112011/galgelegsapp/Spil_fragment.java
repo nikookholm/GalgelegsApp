@@ -19,7 +19,7 @@ public class Spil_fragment extends Fragment implements View.OnClickListener {
             bz, bx, bc, bv, bb, bn, bm;
     private ImageView imageView;
     private TextView synligtOrdText;
-    Spil spil = new Spil();
+    Spil spil;
 
     private int[] galgeBilled = new int[]{R.mipmap.galge, R.mipmap.forkert1, R.mipmap.forkert2, R.mipmap.forkert3,
             R.mipmap.forkert4, R.mipmap.forkert5, R.mipmap.forkert6, R.mipmap.finalpic};
@@ -30,7 +30,7 @@ public class Spil_fragment extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
+        spil = (Spil)getActivity();
          root = inflater.inflate(R.layout.spil_fragment, container, false);
 
         int[] buttonId = new int[]{R.id.btnQ, R.id.btnW, R.id.btnE, R.id.btnR, R.id.btnT, R.id.btnY, R.id.btnU,
@@ -55,11 +55,22 @@ public class Spil_fragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-       spil.logik.gætBogstav(((Button) v).getText().toString());
+       opdaterFragment(v);
+        evaluerSpil();
+
+
+    }
+
+    private void opdaterFragment(View v){
+        spil.logik.gætBogstav(((Button) v).getText().toString());
         imageView.setImageResource(galgeBilled[spil.logik.getAntalForkerteBogstaver()]);
         synligtOrdText.setText(spil.logik.getSynligtOrd());
-
-
+    }
+    private void evaluerSpil(){
+        if(spil.logik.erSpilletSlut()){
+            Fragment result = new Result_Fragment();
+            spil.fragmentFrame(result);
+        }
     }
 }
 

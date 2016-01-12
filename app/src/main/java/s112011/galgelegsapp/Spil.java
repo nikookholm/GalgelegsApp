@@ -27,7 +27,7 @@ public class Spil extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.fragmentKeyboard, fragment).commit();
 
-        transaction = getSupportFragmentManager().beginTransaction();
+
     }
 
     @Override
@@ -36,9 +36,9 @@ public class Spil extends AppCompatActivity {
         return true;
     }
 
-    public void fragmentFrame(){
-        Fragment frag = new Spil_fragment();
-        transaction.replace(R.id.fragmentKeyboard, frag).commit();
+    public void fragmentFrame(Fragment frag){
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragmentKeyboard, frag).commit();
 }
     public void startSpil(){
        logik.nulstil();

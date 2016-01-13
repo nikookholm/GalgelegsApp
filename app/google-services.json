@@ -1,0 +1,51 @@
+{
+  "project_info": {
+    "project_id": "galgelegsapp",
+    "project_number": "404196108127",
+    "name": "GalgelegsApp"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:404196108127:android:dc48706ba8ee3de0",
+        "client_id": "android:s112011.galgelegsapp",
+        "client_type": 1,
+        "android_client_info": {
+          "package_name": "s112011.galgelegsapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "404196108127-abro4cg8903epobp3osuftgms5t2o9e0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "s112011.galgelegsapp",
+            "certificate_hash": "CF11D915080392DA92386E0488EA0231E68D49FC"
+          }
+        }
+      ],
+      "api_key": [],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "cloud_messaging_service": {
+          "status": 1,
+          "apns_config": []
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "google_signin_service": {
+          "status": 2
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "client_info": [],
+  "ARTIFACT_VERSION": "1"
+}

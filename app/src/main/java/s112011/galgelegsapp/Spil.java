@@ -49,10 +49,10 @@ public class Spil extends AppCompatActivity {
                 .replace(R.id.fragmentKeyboard, frag).commit();
 }
     public void startSpil(){
-      // logik.nulstil();
-        Intent intent = new Intent(Intent.ACTION_PICK,
-                android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        startActivityForResult(intent, 0);
+       logik.nulstil();
+//        Intent intent = new Intent(Intent.ACTION_PICK,
+//                android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+//        startActivityForResult(intent, 0);
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -68,9 +68,9 @@ public class Spil extends AppCompatActivity {
                bitmap = Bitmap.createBitmap(bitmap,100,300,200,300);
 
 
-
                 frame = (ImageView) findViewById(R.id.image);
                 frame.setImageBitmap(bitmap);
+
             } catch (FileNotFoundException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();

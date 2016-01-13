@@ -2,6 +2,7 @@ package s112011.galgelegsapp;
 
 import android.app.Application;
 import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 
 import com.firebase.client.Firebase;
 
@@ -9,15 +10,23 @@ import com.firebase.client.Firebase;
  * Created by KimDrewes on 11-01-2016.
  */
 public class GalgeApplication extends Application{
+    SharedPreferences myPrefs;
+    SharedPreferences.Editor editor;
 
-    public static final String PREFS_NAME = "pref";
 
     @Override
     public void onCreate() {
         super.onCreate();
         Firebase.setAndroidContext(this);
 
-        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+
+        myPrefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        editor = myPrefs.edit();
+        saveToPreference();
+    }
+    public void saveToPreference(){
+
+        editor.putString("username", "father").commit();
 
 
     }

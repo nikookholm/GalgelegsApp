@@ -50,32 +50,7 @@ public class Spil extends AppCompatActivity {
 }
     public void startSpil(){
        logik.nulstil();
-//        Intent intent = new Intent(Intent.ACTION_PICK,
-//                android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-//        startActivityForResult(intent, 0);
-    }
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        // TODO Auto-generated method stub
-        super.onActivityResult(requestCode, resultCode, data);
 
-        if (resultCode == RESULT_OK){
-            Uri targetUri = data.getData();
-
-            Bitmap bitmap;
-            try {
-                bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(targetUri));
-               bitmap = Bitmap.createBitmap(bitmap,100,300,200,300);
-
-
-                frame = (ImageView) findViewById(R.id.image);
-                frame.setImageBitmap(bitmap);
-
-            } catch (FileNotFoundException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-        }
     }
 
 }

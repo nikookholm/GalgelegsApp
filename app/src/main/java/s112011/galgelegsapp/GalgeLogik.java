@@ -159,4 +159,10 @@ public class GalgeLogik {
     public void setLevel(int level ){
         this.level = level; System.out.println("Whaaat");
     }
+
+    public String resultatText(){
+        // Bliver kaldt fra result fragmentet
+        if (erSpilletTabt()) return "Du har tabt";
+        else  return " Du har vundet";
+    }
 }

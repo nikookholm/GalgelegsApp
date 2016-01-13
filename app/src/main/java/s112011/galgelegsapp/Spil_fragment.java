@@ -23,6 +23,7 @@ public class Spil_fragment extends Fragment implements View.OnClickListener {
 
     private int[] galgeBilled = new int[]{R.mipmap.galge, R.mipmap.forkert1, R.mipmap.forkert2, R.mipmap.forkert3,
             R.mipmap.forkert4, R.mipmap.forkert5, R.mipmap.forkert6, R.mipmap.finalpic};
+
     View root;
 
 
@@ -31,7 +32,7 @@ public class Spil_fragment extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         spil = (Spil)getActivity();
-         root = inflater.inflate(R.layout.spil_fragment, container, false);
+        root = inflater.inflate(R.layout.spil_fragment, container, false);
 
         int[] buttonId = new int[]{R.id.btnQ, R.id.btnW, R.id.btnE, R.id.btnR, R.id.btnT, R.id.btnY, R.id.btnU,
                 R.id.btnI, R.id.btnO, R.id.btnP, R.id.btnÅ, R.id.btnA, R.id.btnS, R.id.btnD, R.id.btnF, R.id.btnG,
@@ -41,6 +42,7 @@ public class Spil_fragment extends Fragment implements View.OnClickListener {
         for (int i = 0; i < buttonId.length; i++) {
             button = (Button) root.findViewById(buttonId[i]);
             button.setOnClickListener(this);
+
         }
 
 
@@ -68,8 +70,7 @@ public class Spil_fragment extends Fragment implements View.OnClickListener {
     }
     private void evaluerSpil(){
         if(spil.logik.erSpilletSlut()){
-            Fragment result = new Result_Fragment()
-                    ;
+            Fragment result = new Result_Fragment();
             spil.fragmentFrame(result);
         }
     }

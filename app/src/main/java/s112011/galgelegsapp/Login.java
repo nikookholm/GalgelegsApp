@@ -28,32 +28,6 @@ public class Login extends AppCompatActivity{
     SignInButton sign_in_button;
     public Activity a = this;
 
-    // Opretter en ny inner-class af ConFailListener
-    private class ConFailListener implements GoogleApiClient.OnConnectionFailedListener{
-
-        @Override
-        public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-        }
-    }
-    // Opretter en ny inner-class af googleListener Button
-    private class googleListener implements View.OnClickListener {
-
-        @Override
-        public void onClick(View v) {
-            signIn();
-        }
-    }
-    // Opretter en ny inner-class af offlineListener Button
-    private class offlineListener implements View.OnClickListener {
-        @Override
-        public void onClick(View v) {
-            if (v == offlineButton) {
-                Intent goToMainMenu = new Intent(a , MainManuActivity.class);
-                startActivity(goToMainMenu);
-            }
-        }
-    }
-
     @Override
     protected void onCreate (Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -83,5 +57,30 @@ public class Login extends AppCompatActivity{
     private void signIn() {
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(googleApiClient);
         startActivityForResult(signInIntent, RC_SIGN_IN);
+    }
+    // Opretter en ny inner-class af ConFailListener
+    private class ConFailListener implements GoogleApiClient.OnConnectionFailedListener{
+
+        @Override
+        public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+        }
+    }
+    // Opretter en ny inner-class af googleListener Button
+    private class googleListener implements View.OnClickListener {
+
+        @Override
+        public void onClick(View v) {
+            signIn();
+        }
+    }
+    // Opretter en ny inner-class af offlineListener Button
+    private class offlineListener implements View.OnClickListener {
+        @Override
+        public void onClick(View v) {
+            if (v == offlineButton) {
+                Intent goToMainMenu = new Intent(a , MainManuActivity.class);
+                startActivity(goToMainMenu);
+            }
+        }
     }
 }

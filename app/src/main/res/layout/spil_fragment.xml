@@ -26,7 +26,6 @@
         android:layout_below="@+id/galgeView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:text="LEL"
         android:textAlignment="center"
         android:foregroundGravity="center_horizontal"/>
 
@@ -34,166 +33,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:id="@+id/linearLayout3"
-        android:layout_above="@+id/linearLayout"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:gravity="center"
-        android:foregroundGravity="bottom"
-        android:layout_marginTop="20dp">
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="30dp"
-        android:layout_height="35dp"
-        android:textSize="11dp"
-        android:textStyle="bold|normal"
-        android:text="A"
-        android:id="@+id/btnA"
-        android:layout_below="@+id/btnW"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="0dp"
-        android:layout_marginRight="0dp"/>
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="30dp"
-        android:layout_height="35dp"
-        android:textSize="11dp"
-        android:textStyle="bold|normal"
-        android:text="S"
-        android:id="@+id/btnS"
-        android:layout_below="@+id/btnW"
-        android:layout_toRightOf="@+id/btnQ"
-        android:layout_toEndOf="@+id/btnQ"
-        android:layout_marginRight="0dp"/>
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="30dp"
-        android:layout_height="35dp"
-        android:textSize="11dp"
-        android:textStyle="bold|normal"
-        android:text="D"
-        android:id="@+id/btnD"
-        android:layout_alignTop="@+id/btnF"
-        android:layout_toLeftOf="@+id/btnF"
-        android:layout_toStartOf="@+id/btnF"
-        android:layout_marginRight="0dp"/>
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="30dp"
-        android:layout_height="35dp"
-        android:textSize="11dp"
-        android:textStyle="bold|normal"
-        android:text="F"
-        android:id="@+id/btnF"
-        android:layout_below="@+id/btnR"
-        android:layout_toLeftOf="@+id/btnT"
-        android:layout_toStartOf="@+id/btnT"
-        android:layout_marginRight="0dp"/>
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="30dp"
-        android:layout_height="35dp"
-        android:textSize="11dp"
-        android:textStyle="bold|normal"
-        android:text="G"
-        android:id="@+id/btnG"
-        android:layout_below="@+id/btnY"
-        android:layout_toRightOf="@+id/btnF"
-        android:layout_toEndOf="@+id/btnF"
-        android:layout_marginRight="0dp"/>
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="30dp"
-        android:layout_height="35dp"
-        android:textSize="11dp"
-        android:textStyle="bold|normal"
-        android:text="H"
-        android:id="@+id/btnH"
-        android:layout_below="@+id/btnU"
-        android:layout_toRightOf="@+id/btnG"
-        android:layout_toEndOf="@+id/btnG"
-        android:layout_marginRight="0dp"/>
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="30dp"
-        android:layout_height="35dp"
-        android:textSize="11dp"
-        android:textStyle="bold|normal"
-        android:text="J"
-        android:id="@+id/btnJ"
-        android:layout_below="@+id/btnY"
-        android:layout_toRightOf="@+id/btnY"
-        android:layout_toEndOf="@+id/btnY"
-        android:layout_marginRight="0dp"/>
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="30dp"
-        android:layout_height="35dp"
-        android:textSize="11dp"
-        android:textStyle="bold|normal"
-        android:text="K"
-        android:id="@+id/btnK"
-        android:layout_alignBottom="@+id/btnJ"
-        android:layout_toRightOf="@+id/btnJ"
-        android:layout_toEndOf="@+id/btnJ"
-        android:layout_marginRight="0dp"/>
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="30dp"
-        android:layout_height="35dp"
-        android:textSize="11dp"
-        android:textStyle="bold|normal"
-        android:text="L"
-        android:id="@+id/btnL"
-        android:layout_below="@+id/btnI"
-        android:layout_toRightOf="@+id/btnI"
-        android:layout_toEndOf="@+id/btnI"
-        android:layout_marginRight="0dp"/>
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="30dp"
-        android:layout_height="35dp"
-        android:textSize="10dp"
-        android:textStyle="bold|normal"
-        android:text="Æ"
-        android:id="@+id/btnÆ"
-        android:layout_alignBottom="@+id/btnK"
-        android:layout_toRightOf="@+id/btnL"
-        android:layout_toEndOf="@+id/btnL"
-        android:layout_marginRight="0dp"/>
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="30dp"
-        android:layout_height="35dp"
-        android:textSize="11dp"
-        android:textStyle="bold|normal"
-        android:text="Ø"
-        android:id="@+id/btnØ"
-        android:layout_below="@+id/btnP"
-        android:layout_toRightOf="@+id/btnP"
-        android:layout_toEndOf="@+id/btnP"
-        android:layout_marginRight="0dp"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_weight="0.03"
-        android:layout_gravity="bottom"
         android:id="@+id/linearLayout2"
         android:layout_above="@+id/linearLayout3"
         android:layout_alignParentLeft="true"
@@ -212,7 +51,8 @@
             android:textSize="10dp"
             android:layout_alignLeft="@+id/btnA"
             android:layout_alignStart="@+id/btnA"
-            android:layout_marginRight="0dp"/>
+            android:layout_marginRight="0dp"
+            android:layout_gravity="center_horizontal"/>
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -226,7 +66,7 @@
             android:layout_toLeftOf="@+id/btnZ"
             android:layout_toStartOf="@+id/btnZ"
             android:layout_marginRight="0dp"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center_horizontal"/>
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -240,7 +80,7 @@
             android:layout_toRightOf="@+id/btnW"
             android:layout_toEndOf="@+id/btnW"
             android:layout_marginRight="0dp"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center_horizontal"/>
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -296,7 +136,7 @@
             android:layout_toRightOf="@+id/btnY"
             android:layout_toEndOf="@+id/btnY"
             android:layout_marginRight="0dp"
-            android:layout_gravity="right"/>
+            android:layout_gravity="center_horizontal|right"/>
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -346,7 +186,7 @@
             android:layout_height="35dp"
             android:textSize="11dp"
             android:textStyle="bold|normal"
-            android:text="Å"
+            android:text="Å3"
             android:id="@+id/btnÅ"
             android:layout_above="@+id/btnØ"
             android:layout_alignLeft="@+id/btnØ"
@@ -355,6 +195,175 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginLeft="0dp"
             android:layout_marginTop="0dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/linearLayout3"
+        android:layout_above="@+id/linearLayout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:gravity="center"
+        android:foregroundGravity="bottom"
+        android:layout_marginTop="0dp">
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="30dp"
+        android:layout_height="35dp"
+        android:textSize="11dp"
+        android:textStyle="bold|normal"
+        android:text="A"
+        android:id="@+id/btnA"
+        android:layout_below="@+id/btnW"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_gravity="center_horizontal"/>
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="30dp"
+        android:layout_height="35dp"
+        android:textSize="11dp"
+        android:textStyle="bold|normal"
+        android:text="S"
+        android:id="@+id/btnS"
+        android:layout_below="@+id/btnW"
+        android:layout_toRightOf="@+id/btnQ"
+        android:layout_toEndOf="@+id/btnQ"
+        android:layout_marginRight="0dp"
+        android:layout_gravity="center_horizontal"/>
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="30dp"
+        android:layout_height="35dp"
+        android:textSize="11dp"
+        android:textStyle="bold|normal"
+        android:text="D"
+        android:id="@+id/btnD"
+        android:layout_alignTop="@+id/btnF"
+        android:layout_toLeftOf="@+id/btnF"
+        android:layout_toStartOf="@+id/btnF"
+        android:layout_marginRight="0dp"
+        android:layout_gravity="center_horizontal"/>
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="30dp"
+        android:layout_height="35dp"
+        android:textSize="11dp"
+        android:textStyle="bold|normal"
+        android:text="F"
+        android:id="@+id/btnF"
+        android:layout_below="@+id/btnR"
+        android:layout_toLeftOf="@+id/btnT"
+        android:layout_toStartOf="@+id/btnT"
+        android:layout_marginRight="0dp"
+        android:layout_gravity="center_horizontal"/>
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="30dp"
+        android:layout_height="35dp"
+        android:textSize="11dp"
+        android:textStyle="bold|normal"
+        android:text="G"
+        android:id="@+id/btnG"
+        android:layout_below="@+id/btnY"
+        android:layout_toRightOf="@+id/btnF"
+        android:layout_toEndOf="@+id/btnF"
+        android:layout_marginRight="0dp"
+        android:layout_gravity="center_horizontal"/>
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="30dp"
+        android:layout_height="35dp"
+        android:textSize="11dp"
+        android:textStyle="bold|normal"
+        android:text="H"
+        android:id="@+id/btnH"
+        android:layout_below="@+id/btnU"
+        android:layout_toRightOf="@+id/btnG"
+        android:layout_toEndOf="@+id/btnG"
+        android:layout_marginRight="0dp"
+        android:layout_gravity="center_horizontal"/>
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="30dp"
+        android:layout_height="35dp"
+        android:textSize="11dp"
+        android:textStyle="bold|normal"
+        android:text="J"
+        android:id="@+id/btnJ"
+        android:layout_below="@+id/btnY"
+        android:layout_toRightOf="@+id/btnY"
+        android:layout_toEndOf="@+id/btnY"
+        android:layout_marginRight="0dp"
+        android:layout_gravity="center_horizontal"/>
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="30dp"
+        android:layout_height="35dp"
+        android:textSize="11dp"
+        android:textStyle="bold|normal"
+        android:text="K"
+        android:id="@+id/btnK"
+        android:layout_alignBottom="@+id/btnJ"
+        android:layout_toRightOf="@+id/btnJ"
+        android:layout_toEndOf="@+id/btnJ"
+        android:layout_marginRight="0dp"
+        android:layout_gravity="center_horizontal"/>
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="30dp"
+        android:layout_height="35dp"
+        android:textSize="11dp"
+        android:textStyle="bold|normal"
+        android:text="L"
+        android:id="@+id/btnL"
+        android:layout_below="@+id/btnI"
+        android:layout_toRightOf="@+id/btnI"
+        android:layout_toEndOf="@+id/btnI"
+        android:layout_marginRight="0dp"
+        android:layout_gravity="center_horizontal"/>
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="30dp"
+        android:layout_height="35dp"
+        android:textSize="10dp"
+        android:textStyle="bold|normal"
+        android:text="Æ"
+        android:id="@+id/btnÆ"
+        android:layout_alignBottom="@+id/btnK"
+        android:layout_toRightOf="@+id/btnL"
+        android:layout_toEndOf="@+id/btnL"
+        android:layout_marginRight="0dp"
+        android:layout_gravity="center_horizontal"/>
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="30dp"
+        android:layout_height="35dp"
+        android:textSize="11dp"
+        android:textStyle="bold|normal"
+        android:text="Ø"
+        android:id="@+id/btnØ"
+        android:layout_below="@+id/btnP"
+        android:layout_toRightOf="@+id/btnP"
+        android:layout_toEndOf="@+id/btnP"
+        android:layout_marginRight="0dp"
+        android:layout_gravity="center_horizontal"/>
+
     </LinearLayout>
 
     <LinearLayout
@@ -378,7 +387,8 @@
         android:layout_below="@+id/btnS"
         android:layout_toRightOf="@+id/btnS"
         android:layout_toEndOf="@+id/btnS"
-        android:layout_marginRight="0dp"/>
+        android:layout_marginRight="0dp"
+        android:layout_gravity="center_horizontal"/>
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -391,7 +401,8 @@
         android:layout_below="@+id/btnD"
         android:layout_toRightOf="@+id/btnD"
         android:layout_toEndOf="@+id/btnD"
-        android:layout_marginRight="0dp"/>
+        android:layout_marginRight="0dp"
+        android:layout_gravity="center_horizontal"/>
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -404,7 +415,8 @@
         android:layout_below="@+id/btnF"
         android:layout_toRightOf="@+id/btnF"
         android:layout_toEndOf="@+id/btnF"
-        android:layout_marginRight="0dp"/>
+        android:layout_marginRight="0dp"
+        android:layout_gravity="center_horizontal"/>
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -417,7 +429,8 @@
         android:layout_below="@+id/btnH"
         android:layout_toRightOf="@+id/btnG"
         android:layout_toEndOf="@+id/btnG"
-        android:layout_marginRight="0dp"/>
+        android:layout_marginRight="0dp"
+        android:layout_gravity="center_horizontal"/>
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -430,7 +443,8 @@
         android:layout_below="@+id/btnJ"
         android:layout_toRightOf="@+id/btnH"
         android:layout_toEndOf="@+id/btnH"
-        android:layout_marginRight="0dp"/>
+        android:layout_marginRight="0dp"
+        android:layout_gravity="center_horizontal"/>
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -443,7 +457,8 @@
         android:layout_alignBottom="@+id/btnB"
         android:layout_toRightOf="@+id/btnJ"
         android:layout_toEndOf="@+id/btnJ"
-        android:layout_marginRight="0dp"/>
+        android:layout_marginRight="0dp"
+        android:layout_gravity="center_horizontal"/>
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -456,7 +471,8 @@
         android:layout_below="@+id/btnL"
         android:layout_alignLeft="@+id/btnL"
         android:layout_alignStart="@+id/btnL"
-        android:layout_marginRight="0dp"/>
+        android:layout_marginRight="0dp"
+        android:layout_gravity="center_horizontal"/>
 </LinearLayout>
 
 </LinearLayout>

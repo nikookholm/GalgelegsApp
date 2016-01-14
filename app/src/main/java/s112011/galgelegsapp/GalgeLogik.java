@@ -82,18 +82,23 @@ public class GalgeLogik {
 
                 ordet = letOrd.get(new Random().nextInt(letOrd.size()));
                 System.out.println(getOrdet());
+                opdaterSynligtOrd();
+                getSynligtOrd();
 
                 break;
 
             case 2: level = 2;
 
                 ordet = middelOrd.get(new Random().nextInt(middelOrd.size()));
-
+                opdaterSynligtOrd();
+                getSynligtOrd();
                 break;
 
             case 3: level = 3;
 
                 ordet = sværOrd.get(new Random().nextInt(sværOrd.size()));
+                opdaterSynligtOrd();
+                getSynligtOrd();
 
                 break;
         }

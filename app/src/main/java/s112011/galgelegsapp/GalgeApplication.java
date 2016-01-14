@@ -22,11 +22,12 @@ public class GalgeApplication extends Application{
 
         myPrefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         editor = myPrefs.edit();
+
         saveToPreference();
     }
     public void saveToPreference(){
 
-        editor.putString("username", "father").commit();
+
 
 
     }

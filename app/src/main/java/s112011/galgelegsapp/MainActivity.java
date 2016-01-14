@@ -6,7 +6,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.Toast;
 
 
@@ -18,16 +17,18 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         myPrefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         editor = myPrefs.edit();
 
 
-        String use = myPrefs.getString("username", "Sorry");
+        String use = myPrefs.getString("username", "sorry");
+
         Intent i;
         if(use == "sorry"){
              i = new Intent(this, Login.class);
              startActivity(i);
-}
+            }
         else{
             i = new Intent(this, MainManuActivity.class);
             startActivity(i);

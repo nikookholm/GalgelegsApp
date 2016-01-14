@@ -23,12 +23,7 @@ public class GalgeApplication extends Application{
         myPrefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         editor = myPrefs.edit();
 
-        saveToPreference();
-    }
-    public void saveToPreference(){
-
-
-
 
     }
+
 }

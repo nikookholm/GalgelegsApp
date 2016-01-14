@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
 
     SharedPreferences myPrefs;
     SharedPreferences.Editor editor;
-    final String PREFS_NAME = "prefs";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,17 +28,13 @@ public class MainActivity extends AppCompatActivity {
         if(use == "sorry"){
              i = new Intent(this, Login.class);
              startActivity(i);
+             Toast.makeText(getApplicationContext(), "Ingen tidliger bruger", Toast.LENGTH_SHORT).show();
             }
         else{
-            i = new Intent(this, MainManuActivity.class);
-            startActivity(i);
+             i = new Intent(this, MainManuActivity.class);
+             startActivity(i);
+             Toast.makeText(getApplicationContext(), "Loggin in as " + use, Toast.LENGTH_SHORT).show();
         }
-        Toast.makeText(getApplicationContext(), "Loggin in as " + use, Toast.LENGTH_SHORT).show();
-
-
-
-
-
 
     }
 }

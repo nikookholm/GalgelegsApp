@@ -32,7 +32,6 @@ public class Login extends AppCompatActivity{
     public Activity a = this;
     private static final String TAG = "Login";
 
-
     @Override
     protected void onCreate (Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -63,22 +62,31 @@ public class Login extends AppCompatActivity{
 
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(googleApiClient);
         startActivityForResult(signInIntent, RC_SIGN_IN);
-        googleResult.getSignInAccount();
-        googleAccount.getDisplayName();
-
 
     }
+
+    @Override
+    public void startActivityForResult(Intent intent, int requestCode) {
+        super.startActivityForResult(intent, requestCode);
+    }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
+        // Result bliver returneret fra Intent from GoogleSignInApi.getSignInIntent(...);
         if (requestCode == RC_SIGN_IN) {
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
-            handleSignInResult(result);
+//            handleSignInResult(result);
+
+            if(result.isSuccess()){
+                GoogleSignInAccount googleSignInAccount = result.getSignInAccount();
+                String googleName = googleSignInAccount.getDisplayName();
+
+            }
         }
     }
-
+//    Håndtere Informationen fra google login
     private void handleSignInResult(GoogleSignInResult result) {
         Log.d(TAG, "handleSignInResult:" + result.isSuccess());
         if (result.isSuccess()) {

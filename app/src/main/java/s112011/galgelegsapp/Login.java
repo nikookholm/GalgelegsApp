@@ -9,9 +9,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
-
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -21,21 +18,25 @@ import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.common.api.ResultCallback;
-
+import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
 
 public class Login extends AppCompatActivity{
 
     private Button offlineButton;
     GoogleSignInOptions googleOp;
+    ConnectionCallbacks connectionCallbacks;
     GoogleApiClient googleApiClient;
+    GoogleSignInAccount googleSignInAccount;
+
 
     private static final int RC_SIGN_IN = 0;
     SignInButton sign_in_button;
     public Activity a = this;
     private static final String TAG = "Login";
+    String googleName;
 
     @Override
-    protected void onCreate (Bundle savedInstanceState){
+    protected void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
@@ -59,12 +60,12 @@ public class Login extends AppCompatActivity{
         signInButton.setScopes(googleOp.getScopeArray());
     }
 
+
     // Log ind verificering
     private void signIn() {
 
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(googleApiClient);
         startActivityForResult(signInIntent, RC_SIGN_IN);
-
     }
 
     @Override
@@ -79,13 +80,13 @@ public class Login extends AppCompatActivity{
         // Result bliver returneret fra Intent from GoogleSignInApi.getSignInIntent(...);
         if (requestCode == RC_SIGN_IN) {
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+            Intent goToMainMenuActivity = new Intent(a, MainManuActivity.class);
+            startActivity(goToMainMenuActivity);
 
             if(result.isSuccess()){
-                GoogleSignInAccount googleSignInAccount = result.getSignInAccount();
-                String googleName = googleSignInAccount.getDisplayName();
-                Intent goToMainMenuActivity = new Intent(a, MainManuActivity.class);
-                startActivity(goToMainMenuActivity);
-
+                googleSignInAccount = result.getSignInAccount();
+                googleName = googleSignInAccount.getDisplayName();
+                System.out.println("Du er logget ind !!" + googleName);
             }
         }
     }
@@ -121,6 +122,13 @@ public class Login extends AppCompatActivity{
                     }
                 });
     }
+
+
+    public void VerifyLogOut(){
+//        System.out.println(googleApiClient.isConnected());
+//        System.out.println(googleSignInAccount.getDisplayName());
+    }
+
     // Opretter en ny inner-class af ConFailListener
     private class ConFailListener implements GoogleApiClient.OnConnectionFailedListener{
 

@@ -24,4 +24,12 @@
         android:id="@+id/brugerNavn"
       />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sign out"
+        android:background="#683333"
+        android:id="@+id/button_sign_out"
+        android:layout_gravity="center_horizontal"/>
+
 </LinearLayout>

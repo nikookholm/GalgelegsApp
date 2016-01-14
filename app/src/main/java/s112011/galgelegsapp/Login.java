@@ -19,14 +19,16 @@ import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.Status;
+import com.google.android.gms.common.api.ResultCallback;
+
 
 public class Login extends AppCompatActivity{
 
     private Button offlineButton;
     GoogleSignInOptions googleOp;
     GoogleApiClient googleApiClient;
-    GoogleSignInAccount googleAccount;
-    GoogleSignInResult googleResult;
+
     private static final int RC_SIGN_IN = 0;
     SignInButton sign_in_button;
     public Activity a = this;
@@ -77,11 +79,12 @@ public class Login extends AppCompatActivity{
         // Result bliver returneret fra Intent from GoogleSignInApi.getSignInIntent(...);
         if (requestCode == RC_SIGN_IN) {
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
-//            handleSignInResult(result);
 
             if(result.isSuccess()){
                 GoogleSignInAccount googleSignInAccount = result.getSignInAccount();
                 String googleName = googleSignInAccount.getDisplayName();
+                Intent goToMainMenuActivity = new Intent(a, MainManuActivity.class);
+                startActivity(goToMainMenuActivity);
 
             }
         }
@@ -108,6 +111,16 @@ public class Login extends AppCompatActivity{
             sign_in_button.setVisibility(View.VISIBLE);
         }
     }
+
+    public void signOut() {
+        Auth.GoogleSignInApi.signOut(googleApiClient).setResultCallback(
+                new ResultCallback<Status>() {
+                    @Override
+                    public void onResult(Status status){
+                        updateUI(false);
+                    }
+                });
+    }
     // Opretter en ny inner-class af ConFailListener
     private class ConFailListener implements GoogleApiClient.OnConnectionFailedListener{
 
@@ -128,8 +141,9 @@ public class Login extends AppCompatActivity{
         @Override
         public void onClick(View v) {
             if (v == offlineButton) {
-                Intent goToMainMenu = new Intent(a , MainManuActivity.class);
+                Intent goToMainMenu = new Intent(a , Opret_Bruger.class);
                 startActivity(goToMainMenu);
+
             }
         }
     }

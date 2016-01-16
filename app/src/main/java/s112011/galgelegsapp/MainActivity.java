@@ -25,15 +25,14 @@ public class MainActivity extends AppCompatActivity {
         String use = myPrefs.getString("username", "sorry");
 
         Intent i;
-        if(use == "sorry"){
-             i = new Intent(this, Login.class);
-             startActivity(i);
-             Toast.makeText(getApplicationContext(), "Ingen tidliger bruger", Toast.LENGTH_SHORT).show();
-            }
-        else{
-             i = new Intent(this, MainManuActivity.class);
-             startActivity(i);
-             Toast.makeText(getApplicationContext(), "Loggin in as " + use, Toast.LENGTH_SHORT).show();
+        if (use == "sorry") {
+            i = new Intent(this, Login.class);
+            startActivity(i);
+            Toast.makeText(getApplicationContext(), "Ingen tidliger bruger", Toast.LENGTH_SHORT).show();
+        } else {
+            i = new Intent(this, MainManuActivity.class);
+            startActivity(i);
+            Toast.makeText(getApplicationContext(), "Loggin in as " + use, Toast.LENGTH_SHORT).show();
         }
 
     }

@@ -19,28 +19,43 @@ public class GalgeLogik {
     private boolean spilletErVundet;
     private boolean spilletErTabt;
     private int level;
+    private long tid;
     private ArrayList<String> letOrd = new ArrayList<String>();
     private ArrayList<String> middelOrd = new ArrayList<String>();
     private ArrayList<String> sværOrd = new ArrayList<String>();
+
     public ArrayList<String> getBrugteBogstaver() {
         return brugteBogstaver;
     }
 
-    public String getSynligtOrd() {return synligtOrd;}
-    public int getLevel(){return level;}
-    public String getOrdet() {return ordet;}
+    public String getSynligtOrd() {
+        return synligtOrd;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public String getOrdet() {
+        return ordet;
+    }
+
     public int getAntalForkerteBogstaver() {
         return antalForkerteBogstaver;
     }
+
     public boolean erSidsteBogstavKorrekt() {
         return sidsteBogstavVarKorrekt;
     }
+
     public boolean erSpilletVundet() {
         return spilletErVundet;
     }
+
     public boolean erSpilletTabt() {
         return spilletErTabt;
     }
+
     public boolean erSpilletSlut() {
         return spilletErTabt || spilletErVundet;
     }
@@ -53,17 +68,17 @@ public class GalgeLogik {
         sværOrdValg();
     }
 
-    public void letOrdValg(){
+    public void letOrdValg() {
         letOrd.add("hej");
         letOrd.add("dav");
     }
 
-    public void middelOrdvalg(){
+    public void middelOrdvalg() {
         middelOrd.add("sjov");
         middelOrd.add("vinter");
     }
 
-    public void sværOrdValg(){
+    public void sværOrdValg() {
         sværOrd.add("medlemskab");
         sværOrd.add("refleksion");
 
@@ -76,9 +91,10 @@ public class GalgeLogik {
         spilletErTabt = false;
         spilletErVundet = false;
 
-        switch(level){
+        switch (level) {
 
-            case 1: level = 1;
+            case 1:
+                level = 1;
 
                 ordet = letOrd.get(new Random().nextInt(letOrd.size()));
                 System.out.println(getOrdet());
@@ -87,14 +103,16 @@ public class GalgeLogik {
 
                 break;
 
-            case 2: level = 2;
+            case 2:
+                level = 2;
 
                 ordet = middelOrd.get(new Random().nextInt(middelOrd.size()));
                 opdaterSynligtOrd();
                 getSynligtOrd();
                 break;
 
-            case 3: level = 3;
+            case 3:
+                level = 3;
 
                 ordet = sværOrd.get(new Random().nextInt(sværOrd.size()));
                 opdaterSynligtOrd();
@@ -161,13 +179,21 @@ public class GalgeLogik {
         if (spilletErVundet) System.out.println("- SPILLET ER VUNDET");
         System.out.println("---------- ");
     }
-    public void setLevel(int level ){
-        this.level = level; System.out.println("Whaaat");
+
+    public void setLevel(int level) {
+        this.level = level;
+
     }
 
-    public String resultatText(){
-        // Bliver kaldt fra result fragmentet
-        if (erSpilletTabt()) return "Du har tabt";
-        else  return " Du har vundet";
+    public void opdaterTid(long timeInMillis) {
+        tid=timeInMillis/1000;
     }
+
+    public long getTid(){
+        return tid;
+    }
+
+
+
+
 }

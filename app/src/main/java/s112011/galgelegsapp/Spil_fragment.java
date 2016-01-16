@@ -15,16 +15,23 @@ import android.widget.TextView;
  */
 public class Spil_fragment extends Fragment implements View.OnClickListener {
 
-    private Button button, bq, bw, be, br, bt, by, bu, bi, bo, bp, bå, ba, bs, bd, bf, bg, bh, bj, bk, bl, bæ, bø,
-            bz, bx, bc, bv, bb, bn, bm;
+   private Button button;
     private ImageView imageView;
     private TextView synligtOrdText;
     Spil spil;
+    View root;
 
+    // int array for billedeIDer
     private int[] galgeBilled = new int[]{R.mipmap.galge, R.mipmap.forkert1, R.mipmap.forkert2, R.mipmap.forkert3,
             R.mipmap.forkert4, R.mipmap.forkert5, R.mipmap.forkert6, R.mipmap.finalpic};
 
-    View root;
+
+    // int array for buttonIDer
+    int[] buttonId = new int[]{R.id.btnQ, R.id.btnW, R.id.btnE, R.id.btnR, R.id.btnT, R.id.btnY, R.id.btnU,
+            R.id.btnI, R.id.btnO, R.id.btnP, R.id.btnÅ, R.id.btnA, R.id.btnS, R.id.btnD, R.id.btnF, R.id.btnG,
+            R.id.btnH, R.id.btnJ, R.id.btnK, R.id.btnL, R.id.btnÆ, R.id.btnØ, R.id.btnZ, R.id.btnX, R.id.btnC,
+            R.id.btnV, R.id.btnB, R.id.btnN, R.id.btnM};
+
 
 
 
@@ -34,23 +41,15 @@ public class Spil_fragment extends Fragment implements View.OnClickListener {
         spil = (Spil)getActivity();
         root = inflater.inflate(R.layout.spil_fragment, container, false);
 
-        int[] buttonId = new int[]{R.id.btnQ, R.id.btnW, R.id.btnE, R.id.btnR, R.id.btnT, R.id.btnY, R.id.btnU,
-                R.id.btnI, R.id.btnO, R.id.btnP, R.id.btnÅ, R.id.btnA, R.id.btnS, R.id.btnD, R.id.btnF, R.id.btnG,
-                R.id.btnH, R.id.btnJ, R.id.btnK, R.id.btnL, R.id.btnÆ, R.id.btnØ, R.id.btnZ, R.id.btnX, R.id.btnC,
-                R.id.btnV, R.id.btnB, R.id.btnN, R.id.btnM};
-
         for (int i = 0; i < buttonId.length; i++) {
             button = (Button) root.findViewById(buttonId[i]);
             button.setOnClickListener(this);
-
         }
-
 
         imageView = (ImageView) root.findViewById(R.id.galgeView);
         imageView.setImageResource(galgeBilled[0]);
         synligtOrdText = (TextView) root.findViewById(R.id.ordTextView);
         synligtOrdText.setText(spil.logik.getSynligtOrd());
-
 
         return root;
     }
@@ -59,17 +58,15 @@ public class Spil_fragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-       opdaterFragment(v);
+        opdaterFragment(v);
         evaluerSpil();
-
-
     }
 
     private void opdaterFragment(View v){
         spil.logik.gætBogstav(((Button) v).getText().toString());
         imageView.setImageResource(galgeBilled[spil.logik.getAntalForkerteBogstaver()]);
         synligtOrdText.setText(spil.logik.getSynligtOrd());
-        ((Button)v).setVisibility(View.INVISIBLE);
+        v.setVisibility(View.INVISIBLE);
 
     }
     private void evaluerSpil(){

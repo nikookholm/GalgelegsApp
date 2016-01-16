@@ -15,14 +15,13 @@ import android.widget.TextView;
 public class Spil extends AppCompatActivity {
     TextView timer;
     static GalgeLogik logik = new GalgeLogik();
-    FragmentTransaction transaction;
 
-    Bundle bundle = new Bundle();
-
+    // Diverse variabler til tid
     long startTime = 0L;
     long updateTime = 0L;
-     long timeInMilliseconds = 0L;
-        long timeSwapBuff = 0L;
+    long timeInMilliseconds = 0L;
+    long timeSwapBuff = 0L;
+
     Handler timeHandler = new Handler();
 
     @Override
@@ -47,6 +46,8 @@ public class Spil extends AppCompatActivity {
 
             timeInMilliseconds = SystemClock.uptimeMillis() - startTime;
             updateTime = timeSwapBuff + timeInMilliseconds;
+            logik.opdaterTid(updateTime);
+            System.out.println(logik.getTid());
 
             int secs = (int) (updateTime / 1000);
             int mins = secs / 60;
@@ -54,6 +55,12 @@ public class Spil extends AppCompatActivity {
 
             timer.setText("" + mins + ":" + String.format("%02d", secs));
             timeHandler.postDelayed(this, 0);
+
+            //Afbryder runnable når spillet er slut
+            if(logik.erSpilletSlut()){
+                timeHandler.removeCallbacks(updateTimerThread);
+
+            }
         }
     };
 
@@ -76,10 +83,8 @@ public class Spil extends AppCompatActivity {
         timeHandler.postDelayed(updateTimerThread, 0);
 
     }
-// Kan returnere tiden til GalgeLogiken og dermed udregne point
-    public String getTime(){
-       return timer.getText().toString();
-    }
+
+
 
 
 

@@ -10,14 +10,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-
 /**
  * A simple {@link Fragment} subclass.
  */
 public class Result_Fragment extends Fragment {
 
     View root;
-    TextView result, points, time, word;
+    TextView  points, time, word;
     Spil spil;
     ImageView resultView;
 
@@ -29,17 +28,22 @@ public class Result_Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        root =  inflater.inflate(R.layout.fragment_result_, container, false);
         spil = (Spil)getActivity();
+        root =  inflater.inflate(R.layout.fragment_result_, container, false);
+        System.out.println(spil.logik.getOrdet());
 
         resultView = (ImageView)root.findViewById(R.id.result);
         resultView.setImageResource(setResultImageResource());
 
-
-
-
+        // ikke implementeret endnu
         points = (TextView) root.findViewById(R.id.points);
+
         word = (TextView) root.findViewById(R.id.text);
+        word.setText("Ordet der skulle gættes var " + spil.logik.getOrdet());
+
+        time = (TextView) root.findViewById(R.id.time);
+        time.setText(spil.logik.getTid() + " sekunder");
+
 
 
         return root;

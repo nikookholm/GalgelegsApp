@@ -27,7 +27,7 @@ public class Feedback_Activity extends AppCompatActivity implements View.OnClick
 
     @Override
     public void onClick(View v) {
-        if(v == sendKnap){
+        if (v == sendKnap) {
             String feedback = feedbackBox.getText().toString();
             System.out.println(feedback);
         }

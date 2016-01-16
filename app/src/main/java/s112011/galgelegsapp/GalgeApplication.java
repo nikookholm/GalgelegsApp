@@ -9,7 +9,7 @@ import com.firebase.client.Firebase;
 /**
  * Created by KimDrewes on 11-01-2016.
  */
-public class GalgeApplication extends Application{
+public class GalgeApplication extends Application {
     SharedPreferences myPrefs;
     SharedPreferences.Editor editor;
 

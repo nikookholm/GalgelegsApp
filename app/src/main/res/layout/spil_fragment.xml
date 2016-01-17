@@ -186,7 +186,7 @@
             android:layout_height="35dp"
             android:textSize="11dp"
             android:textStyle="bold|normal"
-            android:text="Å3"
+            android:text="Å"
             android:id="@+id/btnÅ"
             android:layout_above="@+id/btnØ"
             android:layout_alignLeft="@+id/btnØ"

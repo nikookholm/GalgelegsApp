@@ -72,7 +72,6 @@ public class Indstillinger_Activity extends AppCompatActivity implements OnClick
                 }
             });
 
-
         }
 
 

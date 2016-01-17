@@ -11,7 +11,10 @@
     tools:context="s112011.galgelegsapp.Feedback_Activity">
     <RatingBar
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:id="@+id/rating"
+        android:numStars="5"
+        />
    <EditText
        android:layout_width="fill_parent"
        android:layout_height="match_parent"

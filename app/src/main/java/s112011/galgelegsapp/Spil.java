@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 public class Spil extends AppCompatActivity {
     TextView timer;
-    static GalgeLogik logik = new GalgeLogik();
+    static GalgeLogik logik  = new GalgeLogik();
 
     // Diverse variabler til tid
     long startTime = 0L;
@@ -28,6 +28,7 @@ public class Spil extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spil);
+
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -47,7 +48,7 @@ public class Spil extends AppCompatActivity {
             timeInMilliseconds = SystemClock.uptimeMillis() - startTime;
             updateTime = timeSwapBuff + timeInMilliseconds;
             logik.opdaterTid(updateTime);
-            System.out.println(logik.getTid());
+
 
             int secs = (int) (updateTime / 1000);
             int mins = secs / 60;

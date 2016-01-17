@@ -1,5 +1,7 @@
 package s112011.galgelegsapp;
 
+import android.content.Context;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -10,19 +12,21 @@ import java.util.HashSet;
 import java.util.Random;
 
 public class GalgeLogik {
-    private ArrayList<String> muligeOrd = new ArrayList<String>();
-    public String ordet;
+
+    public OrdDTO ordet;
     private ArrayList<String> brugteBogstaver = new ArrayList<String>();
     private String synligtOrd;
+    private int point = 0;
+
     private int antalForkerteBogstaver;
     private boolean sidsteBogstavVarKorrekt;
     private boolean spilletErVundet;
     private boolean spilletErTabt;
     private int level;
     private long tid;
-    private ArrayList<String> letOrd = new ArrayList<String>();
-    private ArrayList<String> middelOrd = new ArrayList<String>();
-    private ArrayList<String> sværOrd = new ArrayList<String>();
+    private int hintCount;
+    FireConn fc = new FireConn();
+
 
     public ArrayList<String> getBrugteBogstaver() {
         return brugteBogstaver;
@@ -37,7 +41,19 @@ public class GalgeLogik {
     }
 
     public String getOrdet() {
-        return ordet;
+        return ordet.getOrd();
+    }
+
+    public String getHint() {
+        if (hintCount == 0) {
+            hintCount++;
+            return ordet.getKategori();
+
+        } else if (hintCount == 1) {
+            hintCount++;
+            return ordet.getHint();
+        }
+        return "Du har brugt dine ledetråde";
     }
 
     public int getAntalForkerteBogstaver() {
@@ -61,52 +77,30 @@ public class GalgeLogik {
     }
 
 
-    public GalgeLogik() {
-
-        letOrdValg();
-        middelOrdvalg();
-        sværOrdValg();
-    }
-
-    public void letOrdValg() {
-        letOrd.add("hej");
-        letOrd.add("dav");
-    }
-
-    public void middelOrdvalg() {
-        middelOrd.add("sjov");
-        middelOrd.add("vinter");
-    }
-
-    public void sværOrdValg() {
-        sværOrd.add("medlemskab");
-        sværOrd.add("refleksion");
-
-    }
-
     public void nulstil() {
 
         brugteBogstaver.clear();
         antalForkerteBogstaver = 0;
         spilletErTabt = false;
         spilletErVundet = false;
+        point = 0;
+        hintCount = 0;
+        tid = 0;
 
         switch (level) {
 
             case 1:
                 level = 1;
 
-                ordet = letOrd.get(new Random().nextInt(letOrd.size()));
-                System.out.println(getOrdet());
+                ordet = fc.getEasy().get(new Random().nextInt(fc.getEasy().size()));
                 opdaterSynligtOrd();
                 getSynligtOrd();
-
                 break;
 
             case 2:
                 level = 2;
 
-                ordet = middelOrd.get(new Random().nextInt(middelOrd.size()));
+                ordet = fc.getMedium().get(new Random().nextInt(fc.getMedium().size()));
                 opdaterSynligtOrd();
                 getSynligtOrd();
                 break;
@@ -114,19 +108,11 @@ public class GalgeLogik {
             case 3:
                 level = 3;
 
-                ordet = sværOrd.get(new Random().nextInt(sværOrd.size()));
+                ordet = fc.getHard().get(new Random().nextInt(fc.getHard().size()));
                 opdaterSynligtOrd();
                 getSynligtOrd();
-
                 break;
         }
-
-        /*brugteBogstaver.clear();
-        antalForkerteBogstaver = 0;
-        spilletErVundet = false;
-        spilletErTabt = false;
-        ordet = muligeOrd.get(new Random().nextInt(muligeOrd.size()));
-        opdaterSynligtOrd();*/
     }
 
 
@@ -134,8 +120,8 @@ public class GalgeLogik {
         synligtOrd = "";
         spilletErVundet = true;
         for (int n = 0; n <
-                ordet.length(); n++) {
-            String bogstav = ordet.substring(n, n + 1);
+                ordet.getOrd().length(); n++) {
+            String bogstav = ordet.getOrd().substring(n, n + 1);
             if (brugteBogstaver.contains(bogstav)) {
                 synligtOrd = synligtOrd + bogstav;
             } else {
@@ -154,7 +140,7 @@ public class GalgeLogik {
 
         brugteBogstaver.add(bogstav);
 
-        if (ordet.contains(bogstav)) {
+        if (ordet.getOrd().contains(bogstav)) {
             sidsteBogstavVarKorrekt = true;
             System.out.println("Bogstavet var korrekt: " + bogstav);
         } else {
@@ -186,14 +172,43 @@ public class GalgeLogik {
     }
 
     public void opdaterTid(long timeInMillis) {
-        tid=timeInMillis/1000;
+        tid = timeInMillis / 1000;
     }
 
-    public long getTid(){
+    public long getTid() {
         return tid;
     }
 
+    public int tælPoint() {
+        if(erSpilletTabt()) return 0;
+        point = getOrdet().length() * 100 * level;
 
+        if (tid <= 15) {
+            point = point * 10;
+        } else if ((tid > 15) && (tid <= 30)) {
+            point = point * 5;
+        } else if (tid > 30 && tid <= 60) {
+            point = (int) (point * 2.5);
+        } else if (tid > 60 && tid <= 90) {
+            point = (int) (point * 1.25);
+        } else {
+            point = (int) (point * 0.9);
+        }
+
+        if (hintCount == 0) {
+            point = point * 3;
+        } else if (hintCount == 1) {
+            point = point * 2;
+        } else {
+            point = (int) (point * 0.9);
+        }
+
+        return point;
+    }
+
+    public void gemHighScore(String username){
+        fc.gemScore(new HighScoreDTO(username, point));
+    }
 
 
 }

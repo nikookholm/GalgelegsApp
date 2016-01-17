@@ -81,7 +81,7 @@ public class FireConn {
         for(HighScoreDTO dto : hsList){
           if (dto.getName().equals(hs.getName())){
               userExists = true;
-              if(dto.getPoints()< hs.getPoints()){
+              if(dto.getPoints()> hs.getPoints()){
                   fb.child(hs.getName()).setValue(hs);
               }
           }

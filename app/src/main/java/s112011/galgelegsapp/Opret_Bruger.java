@@ -35,6 +35,7 @@ EditText name;
         editor = prefs.edit();
 
         editor.putString("username", name.getText().toString()).commit();
+        editor.putInt("highscore",0).commit();
         Intent i = new Intent(this, MainManuActivity.class);
         startActivity(i);
 

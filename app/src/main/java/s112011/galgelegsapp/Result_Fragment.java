@@ -22,6 +22,7 @@ public class Result_Fragment extends Fragment {
     Spil spil;
     ImageView resultView;
     SharedPreferences prefs;
+    SharedPreferences.Editor editor;
 
     public Result_Fragment() {
     }
@@ -33,24 +34,28 @@ public class Result_Fragment extends Fragment {
                              Bundle savedInstanceState) {
         spil = (Spil)getActivity();
         prefs = PreferenceManager.getDefaultSharedPreferences(spil.getApplicationContext());
-        root =  inflater.inflate(R.layout.fragment_result_, container, false);
-        System.out.println(spil.logik.getOrdet());
+        editor = prefs.edit();
 
+        root =  inflater.inflate(R.layout.fragment_result_, container, false);
+
+        // Slutbillede
         resultView = (ImageView)root.findViewById(R.id.result);
         resultView.setImageResource(setResultImageResource());
 
-        // ikke implementeret endnu
-        points = (TextView) root.findViewById(R.id.points);
-        points.setText("" + spil.logik.tælPoint());
-
+        // viser ordet der skulle gættes
         word = (TextView) root.findViewById(R.id.text);
         word.setText("Ordet der skulle gættes var " + spil.logik.getOrdet());
 
+        // Viser hvor mange sekunder der blev brugt
         time = (TextView) root.findViewById(R.id.time);
         time.setText(spil.logik.getTid() + " sekunder");
 
-
+        // Opdaterer point, samt skriver til firebase og til prefs
+        points = (TextView) root.findViewById(R.id.points);
+        points.setText("" + spil.logik.tælPoint());
         spil.logik.gemHighScore(prefs.getString("username", "findes ikke"));
+        editor.putInt("highscore", spil.logik.tælPoint());
+
         return root;
     }
 

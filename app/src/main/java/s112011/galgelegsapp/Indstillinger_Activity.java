@@ -23,6 +23,7 @@ public class Indstillinger_Activity extends AppCompatActivity implements OnClick
     EditText brugerNavn;
     Login login;
     public Activity a = this;
+    TextView bruger, highscore;
 
 
     SharedPreferences prefs;
@@ -36,6 +37,13 @@ public class Indstillinger_Activity extends AppCompatActivity implements OnClick
 
         prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         editor = prefs.edit();
+
+        bruger = (TextView) findViewById(R.id.brugernavn);
+        bruger.setText(prefs.getString("username", "unknown"));
+
+        highscore = (TextView) findViewById(R.id.highscore);
+        highscore.setText("" + prefs.getInt("highscore", 0));
+
         skiftBruger = (Button) findViewById(R.id.skiftBruger);
         skiftBruger.setOnClickListener(this);
 
@@ -60,7 +68,7 @@ public class Indstillinger_Activity extends AppCompatActivity implements OnClick
                         String navn = brugerNavn.getText().toString();
                         editor.putString("username", navn)
                                 .commit();
-
+                        editor.putInt("highscore", 0).commit();
                         skiftBruger.setVisibility(View.VISIBLE);
                         brugerNavn.setVisibility(View.GONE);
 
@@ -71,10 +79,7 @@ public class Indstillinger_Activity extends AppCompatActivity implements OnClick
                     }
                 }
             });
-
         }
-
-
     }
 
     private class SignOutListener implements View.OnClickListener {

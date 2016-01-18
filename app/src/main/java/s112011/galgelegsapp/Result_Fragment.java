@@ -69,7 +69,4 @@ public class Result_Fragment extends Fragment {
     }
 
 
-
-
-
 }

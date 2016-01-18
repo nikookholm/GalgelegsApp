@@ -66,9 +66,6 @@ public class HighScores_Activity extends AppCompatActivity {
                 System.out.println("The read failed: " + firebaseError.getMessage());
             }
         });
-
-
-
     }
 
 

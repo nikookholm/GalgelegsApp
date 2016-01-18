@@ -15,15 +15,23 @@ import com.firebase.client.ValueEventListener;
 public class GalgeApplication extends Application {
     SharedPreferences myPrefs;
     SharedPreferences.Editor editor;
-    int count = 0;
 
+
+    Firebase bs = new Firebase("https://galgeapp.firebaseio.com/ordlist/");
 
     @Override
     public void onCreate() {
         super.onCreate();
         Firebase.setAndroidContext(this);
 
-        Firebase bs = new Firebase("https://galgeapp.firebaseio.com/ordlist/");
+        myPrefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        editor = myPrefs.edit();
+
+//        uploadDefaultHighscore();
+//        uploadDefaultOrd();
+    }
+
+    private void uploadDefaultOrd() {
         bs.child("let").child("" + 0).setValue(new OrdDTO("hund", "dyr", "Den gør"));
         bs.child("let").child("" + 1).setValue(new OrdDTO("hest", "dyr", "kan ride på den"));
         bs.child("let").child("" + 2).setValue(new OrdDTO("søløve", "dyr", "lever i vandet og er med i cirkus"));
@@ -36,7 +44,9 @@ public class GalgeApplication extends Application {
         bs.child("hard").child("" + 1).setValue(new OrdDTO("gråspurv", "dyr", "lille fulg der lever i Danmark bl.a."));
         bs.child("hard").child("" + 2).setValue(new OrdDTO("leopard", "dyr", "kattedyr"));
 
+    }
 
+    private void uploadDefaultHighscore() {
         HighScoreDTO a = new HighScoreDTO("Super Awesome", 100000);
         HighScoreDTO b = new HighScoreDTO("Awesome", 90000);
         HighScoreDTO c = new HighScoreDTO("Super", 80000);
@@ -54,12 +64,7 @@ public class GalgeApplication extends Application {
         bs.child(f.getName()).setValue(f);
         bs.child(g.getName()).setValue(g);
         bs.child(h.getName()).setValue(h);
-
-
-        myPrefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        editor = myPrefs.edit();
-
-
     }
+
 
 }

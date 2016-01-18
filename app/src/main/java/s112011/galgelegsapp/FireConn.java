@@ -7,11 +7,20 @@ import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
 
 
 /**
  * Created by KimDrewes on 17-01-2016.
+ *
+ * Klasse der skal sørge for forbindelser til nettet samt firebase
+ * Der er stadig en del oprydning der mangler
  */
 public class FireConn {
     ArrayList<Runnable> observatører = new ArrayList<>();
@@ -19,6 +28,7 @@ public class FireConn {
     private ArrayList<OrdDTO> easy = new ArrayList<>();
     private ArrayList<OrdDTO> medium = new ArrayList<>();
     private ArrayList<OrdDTO> hard = new ArrayList<>();
+
     private ArrayList<HighScoreDTO> hsList;
 
     public FireConn() {
@@ -113,5 +123,38 @@ public class FireConn {
 
             }
         });
+    }
+
+    public static String hentUrl(String url) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(new URL(url).openStream()));
+        StringBuilder sb = new StringBuilder();
+        String linje = br.readLine();
+        while (linje != null) {
+            sb.append(linje + "\n");
+            linje = br.readLine();
+        }
+        return sb.toString();
+    }
+
+    public void hentOrdFraDr() throws Exception {
+       ArrayList<String> drOrd = new ArrayList<>();
+        String data = hentUrl("http://blok4.dk");
+        System.out.println("data = " + data);
+
+        data = data.replaceAll("<.+?>", " ").toLowerCase().replaceAll("[^a-zæøå]", " ");
+        System.out.println("data = " + data);
+        drOrd.clear();
+        drOrd.addAll(new HashSet<String>(Arrays.asList(data.split(" "))));
+
+        // kører listen igennem for at fjerne dem der for er for korte
+        for (int i = 0; i < drOrd.size(); i++){
+            if (drOrd.get(i).length() < 5){
+                drOrd.remove(i);
+
+            }
+
+        }
+
+
     }
 }

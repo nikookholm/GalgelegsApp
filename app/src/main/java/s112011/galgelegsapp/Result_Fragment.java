@@ -2,7 +2,6 @@ package s112011.galgelegsapp;
 
 
 import android.content.SharedPreferences;
-import android.media.Image;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
@@ -12,11 +11,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+
 /**
  * A simple {@link Fragment} subclass.
  */
 public class Result_Fragment extends Fragment {
 
+    HighScoreDAO highScoreDAO = new HighScoreDAO();
     View root;
     TextView  points, time, word;
     Spil spil;
@@ -26,7 +27,6 @@ public class Result_Fragment extends Fragment {
 
     public Result_Fragment() {
     }
-
 
 
     @Override
@@ -53,7 +53,7 @@ public class Result_Fragment extends Fragment {
         // Opdaterer point, samt skriver til firebase og til prefs
         points = (TextView) root.findViewById(R.id.points);
         points.setText("" + spil.logik.tælPoint());
-        spil.logik.gemHighScore(prefs.getString("username", "findes ikke"));
+        highScoreDAO.gemHighScore(prefs.getString("username", "findes ikke"),spil.logik.getPoint());
         editor.putInt("highscore", spil.logik.tælPoint()).commit();
 
         return root;

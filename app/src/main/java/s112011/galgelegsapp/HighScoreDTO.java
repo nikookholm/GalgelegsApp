@@ -1,5 +1,6 @@
 package s112011.galgelegsapp;
 
+import java.io.Serializable;
 import java.util.Comparator;
 
 /**

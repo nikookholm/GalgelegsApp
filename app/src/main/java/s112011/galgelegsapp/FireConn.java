@@ -98,7 +98,7 @@ public class FireConn {
     public void hentScore(){
         Firebase fb = new Firebase("https://galgeapp.firebaseio.com/highscores");
         hsList = new ArrayList<>();
-        fb.addListenerForSingleValueEvent(new ValueEventListener() {
+        fb.addValueEventListener(new ValueEventListener() {
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

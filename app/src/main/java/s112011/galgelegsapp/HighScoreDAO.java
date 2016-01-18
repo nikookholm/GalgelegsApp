@@ -13,6 +13,7 @@ public class HighScoreDAO {
 
     public ArrayList<HighScoreDTO> highscores  = new ArrayList<>();
     ArrayList<Runnable> observatører = new ArrayList<>();
+    static FireConn fc = new FireConn();
 
 
     public HighScoreDAO(){
@@ -28,5 +29,10 @@ public class HighScoreDAO {
     public void addHighscore(HighScoreDTO score){
         highscores.add(score);
     }
+
+    public static void gemHighScore(String username, int point){
+        fc.gemScore(new HighScoreDTO(username, point));
+    }
+
 }
 

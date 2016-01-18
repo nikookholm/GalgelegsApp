@@ -18,14 +18,12 @@ public class GalgeApplication extends Application {
     int count = 0;
 
 
-
-
     @Override
     public void onCreate() {
         super.onCreate();
         Firebase.setAndroidContext(this);
 
-Firebase bs = new Firebase("https://galgeapp.firebaseio.com/ordlist/");
+        Firebase bs = new Firebase("https://galgeapp.firebaseio.com/ordlist/");
         bs.child("let").child("" + 0).setValue(new OrdDTO("hund", "dyr", "Den gør"));
         bs.child("let").child("" + 1).setValue(new OrdDTO("hest", "dyr", "kan ride på den"));
         bs.child("let").child("" + 2).setValue(new OrdDTO("søløve", "dyr", "lever i vandet og er med i cirkus"));
@@ -39,10 +37,23 @@ Firebase bs = new Firebase("https://galgeapp.firebaseio.com/ordlist/");
         bs.child("hard").child("" + 2).setValue(new OrdDTO("leopard", "dyr", "kattedyr"));
 
 
-
-
-
-
+        HighScoreDTO a = new HighScoreDTO("Super Awesome", 100000);
+        HighScoreDTO b = new HighScoreDTO("Awesome", 90000);
+        HighScoreDTO c = new HighScoreDTO("Super", 80000);
+        HighScoreDTO d = new HighScoreDTO("Good", 70000);
+        HighScoreDTO e = new HighScoreDTO("Ok", 60000);
+        HighScoreDTO f = new HighScoreDTO("Average", 50000);
+        HighScoreDTO g = new HighScoreDTO("Super", 40000);
+        HighScoreDTO h = new HighScoreDTO("Bad", 30000);
+        bs = new Firebase("https://galgeapp.firebaseio.com/highscores");
+        bs.child(a.getName()).setValue(a);
+        bs.child(b.getName()).setValue(b);
+        bs.child(c.getName()).setValue(c);
+        bs.child(d.getName()).setValue(d);
+        bs.child(e.getName()).setValue(e);
+        bs.child(f.getName()).setValue(f);
+        bs.child(g.getName()).setValue(g);
+        bs.child(h.getName()).setValue(h);
 
 
         myPrefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());

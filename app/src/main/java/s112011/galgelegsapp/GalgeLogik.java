@@ -26,7 +26,11 @@ public class GalgeLogik implements Runnable {
     private long tid;
     private int hintCount;
     FireConn fc = new FireConn();
+    Context context;
 
+    public GalgeLogik(Context context){
+        this.context = context;
+    }
 
     public ArrayList<String> getBrugteBogstaver() {
         return brugteBogstaver;
@@ -182,10 +186,9 @@ public class GalgeLogik implements Runnable {
         return point;
     }
 
-    public void gemHighScore(String username){
-        fc.gemScore(new HighScoreDTO(username, point));
-    }
-
+public int getPoint(){
+    return point;
+}
 
     @Override
     public void run() {

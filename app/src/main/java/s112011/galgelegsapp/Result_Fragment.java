@@ -54,7 +54,7 @@ public class Result_Fragment extends Fragment {
         points = (TextView) root.findViewById(R.id.points);
         points.setText("" + spil.logik.tælPoint());
         spil.logik.gemHighScore(prefs.getString("username", "findes ikke"));
-        editor.putInt("highscore", spil.logik.tælPoint());
+        editor.putInt("highscore", spil.logik.tælPoint()).commit();
 
         return root;
     }

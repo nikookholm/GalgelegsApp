@@ -6,12 +6,15 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,11 +22,20 @@ import com.google.android.gms.common.api.GoogleApiClient;
 
 public class Indstillinger_Activity extends AppCompatActivity implements OnClickListener {
 
+    ///*
+    //
+    // Skal gennemtænkes, da det måske vil være bedre at bruge et decideret preferenceskærm
+    // med et preference.xml fil.
+    // Hvis der er tid
+    //
+    // */
+
     Button skiftBruger, signout, acceptBtn;
     EditText brugerNavn;
     Login login;
     public Activity a = this;
     TextView bruger, highscore;
+    Switch rankSwitch;
 
 
     SharedPreferences prefs;
@@ -34,22 +46,41 @@ public class Indstillinger_Activity extends AppCompatActivity implements OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_indstillinger_);
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         editor = prefs.edit();
 
+//        Viser nuværende bruger
         bruger = (TextView) findViewById(R.id.brugernavn);
         bruger.setText(prefs.getString("username", "unknown"));
 
+        // Viser højeste score med nuværende bruger
         highscore = (TextView) findViewById(R.id.highscore);
         highscore.setText("" + prefs.getInt("highscore", 0));
 
+//        Switch der tænder og slukker for ranked play, der vil hentes et ord fra DRs webside istedet
+          rankSwitch = (Switch) findViewById(R.id.switch1);
+        rankSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    editor.putBoolean("Ranked", true).commit();
+                }
+                else{
+                    editor.putBoolean("Ranked", false).commit();
+                }
+            }
+        });
+
+//       knap der skiftes ud med brugernavn- edittexten når der klikkes
         skiftBruger = (Button) findViewById(R.id.skiftBruger);
         skiftBruger.setOnClickListener(this);
-
         brugerNavn = (EditText) findViewById(R.id.brugerNavn);
 
 
+        // Signout button -- skal fjernes hvis ikke signout kommer til at virke
         signout = (Button) findViewById(R.id.button_sign_out);
         signout.setOnClickListener(new SignOutListener());
 

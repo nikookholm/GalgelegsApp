@@ -5,14 +5,14 @@ Der anvendes aktiviteter og services eller broadcast recievers.
 
 Der bruges mindst 6 af følgende:
 FÆRDIG - Lister og adaptere,                        + High score vises med Liste og adapter
-Application-objekt,                        - Kunne være god til at gemme noget information i
+Færdig Application-objekt,                        - Kunne være god til at gemme noget information i
 sensorer,                                  -  Har snakket om at man kan reset ved at ryste, eller animationen skal bevæges ved ryst
 netværkskomminikation,                     + Planlagt med adgang til firebase highscore
 baggrundstråde f.eks. med AsyncTask,       + Netværkskommunikation hentes herfra
-SharedPreferences,                         - Kan bruges til at gemme login oplysninger
+Færdig SharedPreferences,                         - Kan bruges til at gemme login oplysninger
 broadcast receivers,
-services,                                 + Google+ konto validering
-fragmenter                                + Spil aktiviteten kommer til at indeholde fragmenter
+Færdig services,                                 + Google+ konto validering
+Færdig fragmenter                                + Spil aktiviteten kommer til at indeholde fragmenter
 
 Applikationen skal være brugervenlig og overholde interaktionprincipperne på den pågældende platform og være godt struktureret.
 Løsningen (implementationen) skal have en god og vedligeholdelsesvenlig struktur. Programlogik skal holdes adskilt fra brugergrænsefladen. Dog må løsningen gerne bære præg af at den har gennemgået en løbende udvikling gennem kurset og at dele af løsningen ikke er gjort færdige.

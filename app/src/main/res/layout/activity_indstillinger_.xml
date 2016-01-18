@@ -11,6 +11,23 @@
     tools:context="s112011.galgelegsapp.Indstillinger_Activity"
     android:background="@color/colorPrimary">
 
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimaryDark"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Light"
+        android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/timer"/>
+
+    </android.support.v7.widget.Toolbar>
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -98,11 +115,7 @@
                 android:id="@+id/switch1"
                 android:layout_gravity="right"
                 android:layout_weight="1"
-                android:textColorLink="@color/colorAccent"
-                android:textColorHint="@color/colorAccent"
-                android:textColorHighlight="@color/colorAccent"
-                android:textColor="@color/colorAccent"
-                android:shadowColor="@color/colorAccent"
+
                 android:elevation="1dp"
                 android:checked="false"
                 android:layout_marginBottom="16dp"

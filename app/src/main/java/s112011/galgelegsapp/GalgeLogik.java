@@ -11,7 +11,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Random;
 
-public class GalgeLogik {
+public class GalgeLogik implements Runnable {
 
     public OrdDTO ordet;
     private ArrayList<String> brugteBogstaver = new ArrayList<String>();
@@ -86,33 +86,9 @@ public class GalgeLogik {
         point = 0;
         hintCount = 0;
         tid = 0;
+        fc.observatører.add(this);
 
-        switch (level) {
-
-            case 1:
-                level = 1;
-
-                ordet = fc.getEasy().get(new Random().nextInt(fc.getEasy().size()));
-                opdaterSynligtOrd();
-                getSynligtOrd();
-                break;
-
-            case 2:
-                level = 2;
-
-                ordet = fc.getMedium().get(new Random().nextInt(fc.getMedium().size()));
-                opdaterSynligtOrd();
-                getSynligtOrd();
-                break;
-
-            case 3:
-                level = 3;
-
-                ordet = fc.getHard().get(new Random().nextInt(fc.getHard().size()));
-                opdaterSynligtOrd();
-                getSynligtOrd();
-                break;
-        }
+        run();
     }
 
 
@@ -211,4 +187,32 @@ public class GalgeLogik {
     }
 
 
+    @Override
+    public void run() {
+        switch (level) {
+
+            case 1:
+
+                ordet = fc.getEasy().get(new Random().nextInt(fc.getEasy().size()));
+                opdaterSynligtOrd();
+                getSynligtOrd();
+                break;
+
+            case 2:
+                level = 2;
+
+                ordet = fc.getMedium().get(new Random().nextInt(fc.getMedium().size()));
+                opdaterSynligtOrd();
+                getSynligtOrd();
+                break;
+
+            case 3:
+                level = 3;
+
+                ordet = fc.getHard().get(new Random().nextInt(fc.getHard().size()));
+                opdaterSynligtOrd();
+                getSynligtOrd();
+                break;
+        }
+    }
 }

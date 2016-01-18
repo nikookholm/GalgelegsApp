@@ -14,7 +14,7 @@ import java.util.ArrayList;
  * Created by KimDrewes on 17-01-2016.
  */
 public class FireConn {
-
+    ArrayList<Runnable> observatører = new ArrayList<>();
 
     private ArrayList<OrdDTO> easy = new ArrayList<>();
     private ArrayList<OrdDTO> medium = new ArrayList<>();
@@ -61,6 +61,9 @@ public class FireConn {
 
             }
         });
+        for (Runnable r: observatører){
+            r.run();
+        }
     }
 
     public ArrayList<OrdDTO> getEasy() {

@@ -45,6 +45,7 @@ public class GalgeLogik implements Runnable {
     }
 
     public String getOrdet() {
+        System.out.println(ordet);
         return ordet.getOrd();
     }
 
@@ -81,7 +82,7 @@ public class GalgeLogik implements Runnable {
     }
 
 
-    public void nulstil() {
+    public void nulstil() throws Exception {
 
         brugteBogstaver.clear();
         antalForkerteBogstaver = 0;
@@ -90,9 +91,18 @@ public class GalgeLogik implements Runnable {
         point = 0;
         hintCount = 0;
         tid = 0;
-        fc.observatører.add(this);
 
-        run();
+        if(level != 0){
+            fc.observatører.add(this);
+            run();
+        }
+        else{
+            System.out.println("Her er jeg");
+               ordet = fc.hentOrdFraDr();
+            opdaterSynligtOrd();
+            getSynligtOrd();
+        }
+
     }
 
 
@@ -189,6 +199,8 @@ public class GalgeLogik implements Runnable {
 public int getPoint(){
     return point;
 }
+
+
 
     @Override
     public void run() {

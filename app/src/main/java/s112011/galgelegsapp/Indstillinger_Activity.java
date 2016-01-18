@@ -66,10 +66,10 @@ public class Indstillinger_Activity extends AppCompatActivity implements OnClick
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
-                    editor.putBoolean("Ranked", true).commit();
+                    editor.putBoolean("drOrd", true).commit();
                 }
                 else{
-                    editor.putBoolean("Ranked", false).commit();
+                    editor.putBoolean("drOrd", false).commit();
                 }
             }
         });

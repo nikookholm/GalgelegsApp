@@ -14,11 +14,12 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Random;
 
 
 /**
  * Created by KimDrewes on 17-01-2016.
- *
+ * <p/>
  * Klasse der skal sørge for forbindelser til nettet samt firebase
  * Der er stadig en del oprydning der mangler
  */
@@ -71,7 +72,7 @@ public class FireConn {
 
             }
         });
-        for (Runnable r: observatører){
+        for (Runnable r : observatører) {
             r.run();
         }
     }
@@ -88,32 +89,32 @@ public class FireConn {
         return hard;
     }
 
-    public void gemScore(HighScoreDTO hs){
+    public void gemScore(HighScoreDTO hs) {
         Firebase fb = new Firebase("https://galgeapp.firebaseio.com/highscores");
         boolean userExists = false;
-        for(HighScoreDTO dto : hsList){
-          if (dto.getName().equals(hs.getName())){
-              userExists = true;
-              if(dto.getPoints()> hs.getPoints()){
-                  fb.child(hs.getName()).setValue(hs);
-              }
-          }
+        for (HighScoreDTO dto : hsList) {
+            if (dto.getName().equals(hs.getName())) {
+                userExists = true;
+                if (dto.getPoints() > hs.getPoints()) {
+                    fb.child(hs.getName()).setValue(hs);
+                }
+            }
 
         }
-          if (!userExists){
-              fb.child(hs.getName()).setValue(hs);
-          }
+        if (!userExists) {
+            fb.child(hs.getName()).setValue(hs);
+        }
     }
 
-    public void hentScore(){
+    public void hentScore() {
         Firebase fb = new Firebase("https://galgeapp.firebaseio.com/highscores");
         hsList = new ArrayList<>();
         fb.addValueEventListener(new ValueEventListener() {
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot hs: dataSnapshot.getChildren()) {
-                HighScoreDTO dto = hs.getValue(HighScoreDTO.class);
+                for (DataSnapshot hs : dataSnapshot.getChildren()) {
+                    HighScoreDTO dto = hs.getValue(HighScoreDTO.class);
                     hsList.add(dto);
                 }
             }
@@ -136,9 +137,9 @@ public class FireConn {
         return sb.toString();
     }
 
-    public void hentOrdFraDr() throws Exception {
-       ArrayList<String> drOrd = new ArrayList<>();
-        String data = hentUrl("http://blok4.dk");
+    public OrdDTO hentOrdFraDr() throws Exception {
+        ArrayList<String> drOrd = new ArrayList<>();
+        String data = hentUrl("http://www.dr.dk");
         System.out.println("data = " + data);
 
         data = data.replaceAll("<.+?>", " ").toLowerCase().replaceAll("[^a-zæøå]", " ");
@@ -147,14 +148,14 @@ public class FireConn {
         drOrd.addAll(new HashSet<String>(Arrays.asList(data.split(" "))));
 
         // kører listen igennem for at fjerne dem der for er for korte
-        for (int i = 0; i < drOrd.size(); i++){
-            if (drOrd.get(i).length() < 5){
+        for (int i = 0; i < drOrd.size(); i++) {
+            if (drOrd.get(i).length() < 5) {
                 drOrd.remove(i);
 
             }
 
         }
 
-
+return new OrdDTO(drOrd.get(new Random().nextInt(drOrd.size())), "findes ikke" , "findes ikke");
     }
 }

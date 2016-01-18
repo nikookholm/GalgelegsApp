@@ -12,6 +12,7 @@
         android:text="Let"
         android:id="@+id/letButton"
         android:layout_gravity="center_horizontal|top"
+        android:visibility="gone"
 
         android:background="#00C853"
         android:layout_marginBottom="15dp"/>
@@ -21,7 +22,7 @@
         android:layout_height="wrap_content"
         android:text="middel"
         android:id="@+id/middelButton"
-
+        android:visibility="gone"
         android:background="#FF9800"/>
 
     <Button
@@ -29,8 +30,20 @@
         android:layout_height="wrap_content"
         android:text="svær"
         android:id="@+id/sværButton"
+        android:visibility="gone"
 
         android:layout_marginTop="15dp"
         android:background="#01579B"/>
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Ord fra DR"
+        android:id="@+id/dr"
+        android:visibility="gone"
+
+        android:layout_marginTop="15dp"
+        android:background="#01579B"/>
+
 
 </LinearLayout>

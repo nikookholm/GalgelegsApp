@@ -17,13 +17,14 @@ public class GalgeApplication extends Application {
     SharedPreferences.Editor editor;
 
 
-    Firebase bs = new Firebase("https://galgeapp.firebaseio.com/ordlist/");
+    Firebase bs;
 
     @Override
     public void onCreate() {
         super.onCreate();
         Firebase.setAndroidContext(this);
 
+        bs = new Firebase("https://galgeapp.firebaseio.com/ordlist/");
         myPrefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         editor = myPrefs.edit();
 

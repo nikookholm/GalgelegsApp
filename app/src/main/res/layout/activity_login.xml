@@ -9,7 +9,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="s112011.galgelegsapp.Login">
+    tools:context="s112011.galgelegsapp.Login"
+                android:background="#9E9E9E">
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/sign_in_button"
@@ -17,8 +18,8 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/offlineButton"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="75dp"
-        android:background="#683333"/>
+        android:background="#683333"
+        android:layout_marginBottom="100dp"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -26,10 +27,10 @@
         android:text="Offline Mode"
         android:id="@+id/offlineButton"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="189dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:background="#683333"
+        android:background="#FF8F00"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="300dp"/>
 </RelativeLayout>

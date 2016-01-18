@@ -18,14 +18,13 @@
    <EditText
        android:layout_width="fill_parent"
        android:layout_height="match_parent"
-       android:text="Giv os din mening"
        android:id="@+id/feedBackText"
        android:textAlignment="gravity"
        android:gravity="top|left"
        android:layout_weight="1"
        android:inputType="textImeMultiLine"
        android:imeOptions="actionDone"
-    />
+       android:hint="Giv os din mening her"/>
 
     <Button
         android:layout_width="wrap_content"

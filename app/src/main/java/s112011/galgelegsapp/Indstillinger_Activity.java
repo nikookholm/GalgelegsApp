@@ -88,10 +88,10 @@ public class Indstillinger_Activity extends AppCompatActivity implements OnClick
         public void onClick(View v) {
 
             if (v == signout) {
-                System.out.println(login.googleApiClient.isConnected());
+//                System.out.println(login.googleApiClient.isConnected());
 //                    login.VerifyLogOut();
-                login.connectionCallbacks.onConnected(Bundle.EMPTY);
-                login.signOut();
+//                login.connectionCallbacks.onConnected(Bundle.EMPTY);
+//                login.signOut();
                 Intent goToMainMenu = new Intent(a, Login.class);
                 startActivity(goToMainMenu);
                 System.out.println("vi er inde");

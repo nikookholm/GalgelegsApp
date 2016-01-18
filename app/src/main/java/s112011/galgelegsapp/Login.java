@@ -118,6 +118,8 @@ public class Login extends AppCompatActivity{
                 new ResultCallback<Status>() {
                     @Override
                     public void onResult(Status status){
+                        googleApiClient.clearDefaultAccountAndReconnect();
+                        googleApiClient.disconnect();
                         updateUI(false);
                     }
                 });

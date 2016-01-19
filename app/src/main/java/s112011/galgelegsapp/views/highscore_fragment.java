@@ -1,4 +1,4 @@
-package s112011.galgelegsapp;
+package s112011.galgelegsapp.views;
 
 
 import android.os.Bundle;
@@ -10,6 +10,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import s112011.galgelegsapp.domæne.HighScoreDTO;
+import s112011.galgelegsapp.R;
 
 
 /**

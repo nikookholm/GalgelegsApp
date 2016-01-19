@@ -1,4 +1,4 @@
-package s112011.galgelegsapp;
+package s112011.galgelegsapp.domæne;
 
 import java.io.Serializable;
 

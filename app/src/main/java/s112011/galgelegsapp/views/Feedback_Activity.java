@@ -1,4 +1,4 @@
-package s112011.galgelegsapp;
+package s112011.galgelegsapp.views;
 
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
@@ -12,6 +12,8 @@ import android.widget.RatingBar;
 import android.widget.Toast;
 
 import com.firebase.client.Firebase;
+
+import s112011.galgelegsapp.R;
 
 public class Feedback_Activity extends AppCompatActivity implements View.OnClickListener {
 

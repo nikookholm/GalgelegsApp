@@ -1,15 +1,13 @@
-package s112011.galgelegsapp;
+package s112011.galgelegsapp.views;
 
 
-import android.content.ClipData;
+import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -17,10 +15,16 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.IOException;
+
+import s112011.galgelegsapp.App;
+import s112011.galgelegsapp.logik.GalgeLogik;
+import s112011.galgelegsapp.R;
+
 
 public class Spil extends AppCompatActivity {
     TextView timer;
-    GalgeLogik logik;
+    GalgeLogik logik = new GalgeLogik();
 
 
     // Diverse varia bler til tid
@@ -29,17 +33,18 @@ public class Spil extends AppCompatActivity {
     long timeInMilliseconds = 0L;
     long timeSwapBuff = 0L;
 
+    ProgressDialog progress;
     Handler timeHandler = new Handler();
-    MenuItem hint;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spil);
-        logik = new GalgeLogik(getApplicationContext());
+
 
         timer = (TextView) findViewById(R.id.timer);
-
+        progress = new ProgressDialog(this);
         getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
 
         Fragment fragment = new Level_fragment();
@@ -49,13 +54,13 @@ public class Spil extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.quit :
+        switch (item.getItemId()) {
+            case R.id.quit:
                 Toast.makeText(getApplicationContext(), "Quit", Toast.LENGTH_SHORT).show();
                 logik.afslutSpil();
                 fragmentFrame(new Result_Fragment());
                 break;
-            case R.id.hint :
+            case R.id.hint:
                 Toast.makeText(getApplicationContext(), logik.getHint(), Toast.LENGTH_SHORT).show();
                 break;
         }
@@ -106,7 +111,7 @@ public class Spil extends AppCompatActivity {
     public void startSpil() {
         try {
             logik.nulstil();
-        } catch (Exception e) {
+        } catch (IOException e) {
             // burde ikke kunne ske, da denne kaldes fra knapper der givere ranked spil
             Toast.makeText(getApplicationContext(), "Kunne ikke loade ord, check internetforbindelsen", Toast.LENGTH_SHORT).show();
             finish();
@@ -118,6 +123,10 @@ public class Spil extends AppCompatActivity {
     }
 
     public void startDRspil() {
+
+        progress.setMessage("Henter ord :) ");
+        progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progress.show();
         setProgressBarIndeterminate(true);
         new AsyncTask() {
             @Override
@@ -125,7 +134,7 @@ public class Spil extends AppCompatActivity {
                 try {
                     logik.nulstil();
                     return null;
-                } catch (Exception e) {
+                } catch (IOException e) {
                     e.printStackTrace();
                     return e;
                 }
@@ -133,6 +142,7 @@ public class Spil extends AppCompatActivity {
 
             @Override
             protected void onPostExecute(Object titler) {
+                progress.hide();
                 Toast.makeText(getApplicationContext(), "Loading completed", Toast.LENGTH_SHORT).show();
                 fragmentFrame(new Spil_fragment());
                 startTime = SystemClock.uptimeMillis();

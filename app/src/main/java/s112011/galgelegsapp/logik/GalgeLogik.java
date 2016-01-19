@@ -1,14 +1,13 @@
-package s112011.galgelegsapp;
+package s112011.galgelegsapp.logik;
 
 import android.content.Context;
 
-import java.io.BufferedReader;
+import s112011.galgelegsapp.App;
+import s112011.galgelegsapp.domæne.OrdDTO;
+import s112011.galgelegsapp.connection.FireConn;
+
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.Random;
 
 public class GalgeLogik implements Runnable {
@@ -25,14 +24,13 @@ public class GalgeLogik implements Runnable {
     private int level;
     private long tid;
     private int hintCount;
-    FireConn fc = new FireConn();
-    Context context;
+
+
 
     public int getHintCount(){
         return hintCount;
     }
-    public GalgeLogik(Context context){
-        this.context = context;
+    public GalgeLogik(){
     }
 
     public ArrayList<String> getBrugteBogstaver() {
@@ -85,7 +83,7 @@ public class GalgeLogik implements Runnable {
     }
 
 
-    public void nulstil() throws Exception {
+    public void nulstil() throws IOException {
 
         brugteBogstaver.clear();
         antalForkerteBogstaver = 0;
@@ -96,12 +94,12 @@ public class GalgeLogik implements Runnable {
         tid = 0;
 
         if(level != 0){
-            fc.observatører.add(this);
+            App.fc.observatører.add(this);
             run();
         }
         else{
-            System.out.println("Her er jeg");
-               ordet = fc.hentOrdFraDr();
+
+               ordet = App.fc.hentOrdFraDr();
             opdaterSynligtOrd();
             getSynligtOrd();
         }
@@ -210,8 +208,8 @@ public int getPoint(){
         switch (level) {
 
             case 1:
-
-                ordet = fc.getEasy().get(new Random().nextInt(fc.getEasy().size()));
+                ;
+                ordet = App.fc.getEasy().get(new Random().nextInt(App.fc.getEasy().size()));
                 opdaterSynligtOrd();
                 getSynligtOrd();
                 break;
@@ -219,7 +217,7 @@ public int getPoint(){
             case 2:
                 level = 2;
 
-                ordet = fc.getMedium().get(new Random().nextInt(fc.getMedium().size()));
+                ordet = App.fc.getMedium().get(new Random().nextInt(App.fc.getMedium().size()));
                 opdaterSynligtOrd();
                 getSynligtOrd();
                 break;
@@ -227,7 +225,7 @@ public int getPoint(){
             case 3:
                 level = 3;
 
-                ordet = fc.getHard().get(new Random().nextInt(fc.getHard().size()));
+                ordet = App.fc.getHard().get(new Random().nextInt(App.fc.getHard().size()));
                 opdaterSynligtOrd();
                 getSynligtOrd();
                 break;

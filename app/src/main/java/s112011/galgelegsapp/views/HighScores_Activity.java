@@ -1,15 +1,8 @@
-package s112011.galgelegsapp;
+package s112011.galgelegsapp.views;
 
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.TextView;
 
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
@@ -17,6 +10,10 @@ import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
 
 import java.util.ArrayList;
+
+import s112011.galgelegsapp.HighScoreDAO;
+import s112011.galgelegsapp.domæne.HighScoreDTO;
+import s112011.galgelegsapp.R;
 
 public class HighScores_Activity extends AppCompatActivity {
 

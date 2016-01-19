@@ -1,4 +1,4 @@
-package s112011.galgelegsapp;
+package s112011.galgelegsapp.views;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,7 +6,6 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -18,7 +17,8 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.common.api.GoogleApiClient;
+import s112011.galgelegsapp.App;
+import s112011.galgelegsapp.R;
 
 public class Indstillinger_Activity extends AppCompatActivity implements OnClickListener {
 
@@ -38,8 +38,6 @@ public class Indstillinger_Activity extends AppCompatActivity implements OnClick
     Switch rankSwitch;
 
 
-    SharedPreferences prefs;
-    SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,17 +46,16 @@ public class Indstillinger_Activity extends AppCompatActivity implements OnClick
 
         getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
 
-        prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        editor = prefs.edit();
+
 
 //        Viser nuværende bruger
         bruger = (TextView) findViewById(R.id.brugernavn);
 
-        bruger.setText(prefs.getString("username", "unknown"));
+        bruger.setText(App.prefs.getString("username", "unknown"));
 
         // Viser højeste score med nuværende bruger
         highscore = (TextView) findViewById(R.id.highscore);
-        highscore.setText("" + prefs.getInt("highscore", 0));
+        highscore.setText("" + App.prefs.getInt("highscore", 0));
 
 //        Switch der tænder og slukker for ranked play, der vil hentes et ord fra DRs webside istedet
           rankSwitch = (Switch) findViewById(R.id.switch1);
@@ -66,10 +63,10 @@ public class Indstillinger_Activity extends AppCompatActivity implements OnClick
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
-                    editor.putBoolean("drOrd", true).commit();
+                   App.editor.putBoolean("drOrd", true).commit();
                 }
                 else{
-                    editor.remove("drOrd").commit();
+                    App.editor.remove("drOrd").commit();
                 }
             }
         });
@@ -97,13 +94,13 @@ public class Indstillinger_Activity extends AppCompatActivity implements OnClick
                 public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                     if (actionId == EditorInfo.IME_ACTION_DONE) {
                         String navn = brugerNavn.getText().toString();
-                        editor.putString("username", navn)
+                        App.editor.putString("username", navn)
                                 .commit();
-                        editor.putInt("highscore", 0).commit();
+                        App.editor.putInt("highscore", 0).commit();
                         skiftBruger.setVisibility(View.VISIBLE);
                         brugerNavn.setVisibility(View.GONE);
 
-                        Toast.makeText(getApplicationContext(), prefs.getString("username", "ukendt"), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), App.prefs.getString("username", "ukendt"), Toast.LENGTH_SHORT).show();
                         return true;
                     } else {
                         return false;

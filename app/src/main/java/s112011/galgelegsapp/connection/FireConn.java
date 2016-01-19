@@ -1,6 +1,4 @@
-package s112011.galgelegsapp;
-
-import android.content.Context;
+package s112011.galgelegsapp.connection;
 
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
@@ -16,6 +14,12 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Random;
 
+import s112011.galgelegsapp.App;
+import s112011.galgelegsapp.HighScoreDAO;
+import s112011.galgelegsapp.domæne.HighScoreDTO;
+import s112011.galgelegsapp.domæne.OrdDTO;
+import s112011.galgelegsapp.views.highscore_fragment;
+
 
 /**
  * Created by KimDrewes on 17-01-2016.
@@ -24,8 +28,9 @@ import java.util.Random;
  * Der er stadig en del oprydning der mangler
  */
 public class FireConn {
-    ArrayList<Runnable> observatører = new ArrayList<>();
 
+    public ArrayList<Runnable> observatører = new ArrayList<>();
+    public ArrayList<Runnable>  highScoreObservers = new ArrayList<>();
     private ArrayList<OrdDTO> easy = new ArrayList<>();
     private ArrayList<OrdDTO> medium = new ArrayList<>();
     private ArrayList<OrdDTO> hard = new ArrayList<>();
@@ -115,7 +120,7 @@ public class FireConn {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot hs : dataSnapshot.getChildren()) {
                     HighScoreDTO dto = hs.getValue(HighScoreDTO.class);
-                    hsList.add(dto);
+                    HighScoreDAO.highscores.add(dto);
                 }
             }
 
@@ -123,7 +128,11 @@ public class FireConn {
             public void onCancelled(FirebaseError firebaseError) {
 
             }
+
         });
+        for (Runnable r : HighScoreDAO.observatører){
+            r.run();
+        }
     }
 
     public static String hentUrl(String url) throws IOException {
@@ -137,7 +146,7 @@ public class FireConn {
         return sb.toString();
     }
 
-    public OrdDTO hentOrdFraDr() throws Exception {
+    public OrdDTO hentOrdFraDr() throws IOException {
         ArrayList<String> drOrd = new ArrayList<>();
         String data = hentUrl("http://www.dr.dk");
         System.out.println("data = " + data);
@@ -158,4 +167,8 @@ public class FireConn {
 
 return new OrdDTO(drOrd.get(new Random().nextInt(drOrd.size())), "findes ikke" , "findes ikke");
     }
+
+
+
+
 }

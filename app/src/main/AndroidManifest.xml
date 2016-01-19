@@ -15,31 +15,40 @@
     <uses-permission android:name="android.permission.USE_CREDENTIALS" />
 
     <application
-        android:name=".GalgeApplication"
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="g24 Galgeleg"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <meta-data
             android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
+            android:value="@integer/google_play_services_version"/>
+
 
         <activity
-            android:name=".Login"
-            android:label="Login"></activity>
+            android:name=".views.Login"
+            android:label="Login"
+            android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".MainManuActivity"
-            android:label="Hovedmenu" />
-        <activity android:name=".Spil"
-            android:label="Spil"/>
+            android:name=".views.HovedmenuActivity"
+            android:label="Hovedmenu"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".views.Spil"
+            android:label="Spil"
+            android:screenOrientation="portrait"/>
         <activity
-            android:name=".Indstillinger_Activity"
+            android:name=".views.Indstillinger_Activity"
             android:label="Indstillinger" />
-        <activity android:name=".HighScores_Activity" />
-        <activity android:name=".Feedback_Activity" />
-        <activity android:name=".Opret_Bruger"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".views.HighScores_Activity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".views.Feedback_Activity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".views.Opret_Bruger"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".views.MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -4,19 +4,21 @@ import android.app.Application;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
-import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
-import com.firebase.client.FirebaseError;
-import com.firebase.client.ValueEventListener;
+
+import s112011.galgelegsapp.connection.FireConn;
+import s112011.galgelegsapp.domæne.HighScoreDTO;
+import s112011.galgelegsapp.domæne.OrdDTO;
 
 /**
  * Created by KimDrewes on 11-01-2016.
  */
-public class GalgeApplication extends Application {
-    SharedPreferences myPrefs;
-    SharedPreferences.Editor editor;
+public class App extends Application {
+    public static SharedPreferences prefs;
+    public static SharedPreferences.Editor editor;
+    public static HighScoreDAO hsDAO;
 
-
+    public static FireConn fc;
     Firebase bs;
 
     @Override
@@ -24,14 +26,21 @@ public class GalgeApplication extends Application {
         super.onCreate();
         Firebase.setAndroidContext(this);
 
-        bs = new Firebase("https://galgeapp.firebaseio.com/ordlist/");
-        myPrefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        editor = myPrefs.edit();
+        fc = new FireConn();
+        hsDAO = new HighScoreDAO();
 
-//        uploadDefaultHighscore();
-//        uploadDefaultOrd();
+
+
+//        bs = new Firebase("https://galgeapp.firebaseio.com/ordlist/"); // bruges kun hvis der skal initialiseres ny database
+
+        prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        editor = prefs.edit();
+
+
     }
 
+
+    // Bruges hvis ting går galt og ord og highscores bliver overskrevet
     private void uploadDefaultOrd() {
         bs.child("let").child("" + 0).setValue(new OrdDTO("hund", "dyr", "Den gør"));
         bs.child("let").child("" + 1).setValue(new OrdDTO("hest", "dyr", "kan ride på den"));

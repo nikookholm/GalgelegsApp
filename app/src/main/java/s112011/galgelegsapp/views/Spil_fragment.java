@@ -1,4 +1,4 @@
-package s112011.galgelegsapp;
+package s112011.galgelegsapp.views;
 
 import android.app.Activity;
 import android.hardware.Sensor;
@@ -14,6 +14,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import s112011.galgelegsapp.R;
 
 
 /**
@@ -84,6 +86,7 @@ public class Spil_fragment extends Fragment implements SensorEventListener, View
         if(spil.logik.erSpilletSlut()){
             Fragment result = new Result_Fragment();
             spil.fragmentFrame(result);
+            spil.timer.setVisibility(View.GONE);
         }
     }
 

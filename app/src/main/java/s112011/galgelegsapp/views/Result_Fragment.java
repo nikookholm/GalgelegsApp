@@ -1,4 +1,4 @@
-package s112011.galgelegsapp;
+package s112011.galgelegsapp.views;
 
 
 import android.content.SharedPreferences;
@@ -11,6 +11,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import s112011.galgelegsapp.App;
+import s112011.galgelegsapp.HighScoreDAO;
+import s112011.galgelegsapp.R;
+import s112011.galgelegsapp.views.Spil;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -22,8 +27,7 @@ public class Result_Fragment extends Fragment {
     TextView  points, time, word;
     Spil spil;
     ImageView resultView;
-    SharedPreferences prefs;
-    SharedPreferences.Editor editor;
+
 
     public Result_Fragment() {
     }
@@ -33,8 +37,7 @@ public class Result_Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         spil = (Spil)getActivity();
-        prefs = PreferenceManager.getDefaultSharedPreferences(spil.getApplicationContext());
-        editor = prefs.edit();
+
 
         root =  inflater.inflate(R.layout.fragment_result_, container, false);
 
@@ -53,8 +56,8 @@ public class Result_Fragment extends Fragment {
         // Opdaterer point, samt skriver til firebase og til prefs
         points = (TextView) root.findViewById(R.id.points);
         points.setText("" + spil.logik.tælPoint());
-        highScoreDAO.gemHighScore(prefs.getString("username", "findes ikke"),spil.logik.getPoint());
-        editor.putInt("highscore", spil.logik.tælPoint()).commit();
+        highScoreDAO.gemHighScore(App.prefs.getString("username", "findes ikke"),spil.logik.getPoint());
+        App.editor.putInt("highscore", spil.logik.tælPoint()).commit();
 
         return root;
     }

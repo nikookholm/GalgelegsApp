@@ -46,6 +46,8 @@ public class Login extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+
+
         offlineButton = (Button) findViewById(R.id.offlineButton);
         offlineButton.setOnClickListener(new offlineListener());
 

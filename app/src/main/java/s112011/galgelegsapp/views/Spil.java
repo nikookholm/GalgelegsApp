@@ -1,11 +1,14 @@
 package s112011.galgelegsapp.views;
 
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -14,6 +17,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 
 import java.io.IOException;
 
@@ -26,7 +31,7 @@ public class Spil extends AppCompatActivity {
     TextView timer;
     GalgeLogik logik = new GalgeLogik();
 
-
+    Menu menu;
     // Diverse varia bler til tid
     long startTime = 0L;
     long updateTime = 0L;
@@ -45,16 +50,38 @@ public class Spil extends AppCompatActivity {
 
         timer = (TextView) findViewById(R.id.timer);
         progress = new ProgressDialog(this);
-        getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
 
-        Fragment fragment = new Level_fragment();
-        getSupportFragmentManager().beginTransaction()
-                .add(R.id.fragmentKeyboard, fragment).commit();
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.abc_ic_ab_back_mtrl_am_alpha);
+
+
+        fragmentFrame(new Level_fragment());
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
+        switch (item.getItemId() ) {
+
+            case android.R.id.home :
+                new AlertDialog.Builder(this)
+                        .setTitle("Forlad spillet?")
+                        .setMessage("Ønsker du at forlade spillet?")
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                finish();
+                            }
+                        })
+                        .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        })
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
+
+                break;
             case R.id.quit:
                 Toast.makeText(getApplicationContext(), "Quit", Toast.LENGTH_SHORT).show();
                 logik.afslutSpil();
@@ -97,7 +124,12 @@ public class Spil extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        this.menu = menu;
         getMenuInflater().inflate(R.menu.menu, menu);
+        if (!logik.erSpilletErIGang()){
+            menu.findItem(R.id.quit).setVisible(false);
+            menu.findItem(R.id.hint).setVisible(false);
+        }
         return true;
     }
 
@@ -111,6 +143,9 @@ public class Spil extends AppCompatActivity {
     public void startSpil() {
         try {
             logik.nulstil();
+            if(logik.erSpilletErIGang()){
+                onCreateOptionsMenu(menu);
+            }
         } catch (IOException e) {
             // burde ikke kunne ske, da denne kaldes fra knapper der givere ranked spil
             Toast.makeText(getApplicationContext(), "Kunne ikke loade ord, check internetforbindelsen", Toast.LENGTH_SHORT).show();
@@ -148,6 +183,10 @@ public class Spil extends AppCompatActivity {
                 startTime = SystemClock.uptimeMillis();
                 timeHandler.postDelayed(updateTimerThread, 0);
                 timer.setVisibility(View.VISIBLE);
+                if(logik.erSpilletErIGang()){
+                    onCreateOptionsMenu(menu);
+                }
+
             }
 
         }.execute();

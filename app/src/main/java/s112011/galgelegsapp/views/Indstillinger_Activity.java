@@ -7,6 +7,7 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
@@ -38,14 +39,15 @@ public class Indstillinger_Activity extends AppCompatActivity implements OnClick
     Switch rankSwitch;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_indstillinger_);
 
-        getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.abc_ic_ab_back_mtrl_am_alpha);
 
 
 //        Viser nuværende bruger
@@ -58,15 +60,18 @@ public class Indstillinger_Activity extends AppCompatActivity implements OnClick
         highscore.setText("" + App.prefs.getInt("highscore", 0));
 
 //        Switch der tænder og slukker for ranked play, der vil hentes et ord fra DRs webside istedet
-          rankSwitch = (Switch) findViewById(R.id.switch1);
+        rankSwitch = (Switch) findViewById(R.id.switch1);
+        rankSwitch.setChecked(App.prefs.getBoolean("drOrd", false));
         rankSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
-                   App.editor.putBoolean("drOrd", true).commit();
-                }
-                else{
+                if (isChecked) {
+                    App.editor.putBoolean("drOrd", true).commit();
+                    System.out.println(rankSwitch.isChecked());
+
+                } else {
                     App.editor.remove("drOrd").commit();
+                    System.out.println(rankSwitch.isChecked());
                 }
             }
         });
@@ -99,6 +104,8 @@ public class Indstillinger_Activity extends AppCompatActivity implements OnClick
                         App.editor.putInt("highscore", 0).commit();
                         skiftBruger.setVisibility(View.VISIBLE);
                         brugerNavn.setVisibility(View.GONE);
+                        bruger.setText(navn);
+                        highscore.setText("0");
 
                         Toast.makeText(getApplicationContext(), App.prefs.getString("username", "ukendt"), Toast.LENGTH_SHORT).show();
                         return true;
@@ -125,5 +132,13 @@ public class Indstillinger_Activity extends AppCompatActivity implements OnClick
                 System.out.println("vi er inde");
             }
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem menu) {
+        if (menu.getItemId() == android.R.id.home) {
+            finish();
+        }
+        return false;
     }
 }

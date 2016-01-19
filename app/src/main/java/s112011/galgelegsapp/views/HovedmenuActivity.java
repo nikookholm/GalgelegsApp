@@ -27,24 +27,23 @@ public class HovedmenuActivity extends AppCompatActivity implements View.OnClick
         indstillingBtn.setOnClickListener(this);
 
         feedbackBtn = (Button) findViewById(R.id.feedbackKnap);
-    feedbackBtn.setOnClickListener(this);
+        feedbackBtn.setOnClickListener(this);
+
+
     }
 
     @Override
     public void onClick(View v) {
-        if(v == spilBtn){
+        if (v == spilBtn) {
             Intent visLevels = new Intent(this, Spil.class);
             startActivity(visLevels);
-            }
-        else if(v == indstillingBtn){
+        } else if (v == indstillingBtn) {
             Intent visIndstillinger = new Intent(this, Indstillinger_Activity.class);
             startActivity(visIndstillinger);
-        }
-        else if(v == highScoresBtn){
+        } else if (v == highScoresBtn) {
             Intent visHighScores = new Intent(this, HighScores_Activity.class);
             startActivity(visHighScores);
-        }
-        else if( v == feedbackBtn){
+        } else if (v == feedbackBtn) {
             Intent visFeedbackActivty = new Intent(this, Feedback_Activity.class);
             startActivity(visFeedbackActivty);
         }

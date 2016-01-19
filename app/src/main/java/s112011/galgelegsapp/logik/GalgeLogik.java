@@ -16,7 +16,7 @@ public class GalgeLogik implements Runnable {
     private ArrayList<String> brugteBogstaver = new ArrayList<String>();
     private String synligtOrd;
     private int point = 0;
-
+    private boolean spilletErIGang = false;
     private int antalForkerteBogstaver;
     private boolean sidsteBogstavVarKorrekt;
     private boolean spilletErVundet;
@@ -26,7 +26,9 @@ public class GalgeLogik implements Runnable {
     private int hintCount;
 
 
-
+   public  boolean erSpilletErIGang(){
+       return spilletErIGang;
+   }
     public int getHintCount(){
         return hintCount;
     }
@@ -89,6 +91,7 @@ public class GalgeLogik implements Runnable {
         antalForkerteBogstaver = 0;
         spilletErTabt = false;
         spilletErVundet = false;
+        spilletErIGang = true;
         point = 0;
         hintCount = 0;
         tid = 0;

@@ -26,15 +26,17 @@ public class App extends Application {
         super.onCreate();
         Firebase.setAndroidContext(this);
 
+
         fc = new FireConn();
         hsDAO = new HighScoreDAO();
-
 
 
 //        bs = new Firebase("https://galgeapp.firebaseio.com/ordlist/"); // bruges kun hvis der skal initialiseres ny database
 
         prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         editor = prefs.edit();
+
+
 
 
     }
@@ -75,6 +77,7 @@ public class App extends Application {
         bs.child(g.getName()).setValue(g);
         bs.child(h.getName()).setValue(h);
     }
+
 
 
 }

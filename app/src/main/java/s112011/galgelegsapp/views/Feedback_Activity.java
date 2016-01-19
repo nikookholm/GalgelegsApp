@@ -4,6 +4,7 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
@@ -40,6 +41,7 @@ rating = (RatingBar) findViewById(R.id.rating);
         rating.setRating((float) 3);
 
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @Override
@@ -49,6 +51,15 @@ rating = (RatingBar) findViewById(R.id.rating);
             feedbackBase.child(prefs.getString("username", "findes ikke")).child("message").setValue(feedbackBox.getText().toString());
             feedbackBase.child(prefs.getString("username", "findes ikke")).child("stars").setValue(rating.getRating());
             Toast.makeText(this, " Tak for din feedback", Toast.LENGTH_SHORT).show();
+            finish();
         }
     }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem menu){
+        if (menu.getItemId() == android.R.id.home){
+            finish();
+        }
+        return false;
+    }
+
 }

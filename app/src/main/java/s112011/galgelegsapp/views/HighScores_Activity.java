@@ -3,6 +3,7 @@ package s112011.galgelegsapp.views;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
@@ -25,6 +26,7 @@ public class HighScores_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_high_scores_);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Fragment frag = new highscore_fragment();
         getSupportFragmentManager()
@@ -64,6 +66,12 @@ public class HighScores_Activity extends AppCompatActivity {
             }
         });
     }
-
+    @Override
+    public boolean onOptionsItemSelected(MenuItem menu){
+        if (menu.getItemId() == android.R.id.home){
+            finish();
+        }
+        return false;
+    }
 
 }

@@ -101,13 +101,14 @@ public class FireConn {
             if (dto.getName().equals(hs.getName())) {
                 userExists = true;
                 if (dto.getPoints() > hs.getPoints()) {
-                    fb.child(hs.getName()).setValue(hs);
+                    fb.child(hs.getName().replace(".", " ")).setValue(hs);
                 }
             }
 
         }
         if (!userExists) {
-            fb.child(hs.getName()).setValue(hs);
+
+                        fb.child(hs.getName().replace(".", " ")).setValue(hs);
         }
     }
 

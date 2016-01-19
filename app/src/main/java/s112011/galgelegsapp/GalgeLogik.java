@@ -28,6 +28,9 @@ public class GalgeLogik implements Runnable {
     FireConn fc = new FireConn();
     Context context;
 
+    public int getHintCount(){
+        return hintCount;
+    }
     public GalgeLogik(Context context){
         this.context = context;
     }
@@ -229,5 +232,10 @@ public int getPoint(){
                 getSynligtOrd();
                 break;
         }
+    }
+
+    public void afslutSpil(){
+        spilletErTabt = true;
+
     }
 }

@@ -1,15 +1,19 @@
 package s112011.galgelegsapp;
 
 
+import android.content.ClipData;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.MenuItem;
+
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,13 +22,15 @@ public class Spil extends AppCompatActivity {
     TextView timer;
     GalgeLogik logik;
 
-    // Diverse variabler til tid
+
+    // Diverse varia bler til tid
     long startTime = 0L;
     long updateTime = 0L;
     long timeInMilliseconds = 0L;
     long timeSwapBuff = 0L;
 
     Handler timeHandler = new Handler();
+    MenuItem hint;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,14 +38,29 @@ public class Spil extends AppCompatActivity {
         setContentView(R.layout.activity_spil);
         logik = new GalgeLogik(getApplicationContext());
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        timer = (TextView) findViewById(R.id.timer);
 
-        timer = (TextView) toolbar.findViewById(R.id.timer);
+        getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
 
         Fragment fragment = new Level_fragment();
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.fragmentKeyboard, fragment).commit();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.quit :
+                Toast.makeText(getApplicationContext(), "Quit", Toast.LENGTH_SHORT).show();
+                logik.afslutSpil();
+                fragmentFrame(new Result_Fragment());
+                break;
+            case R.id.hint :
+                Toast.makeText(getApplicationContext(), logik.getHint(), Toast.LENGTH_SHORT).show();
+                break;
+        }
+
+        return true;
     }
 
     // Runnable der opdaterer tiden
@@ -57,6 +78,7 @@ public class Spil extends AppCompatActivity {
             secs = secs % 60;
 
             timer.setText("" + mins + ":" + String.format("%02d", secs));
+
             timeHandler.postDelayed(this, 0);
 
             //Afbryder runnable når spillet er slut
@@ -66,6 +88,7 @@ public class Spil extends AppCompatActivity {
             }
         }
     };
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -90,12 +113,11 @@ public class Spil extends AppCompatActivity {
         }
         startTime = SystemClock.uptimeMillis();
         timeHandler.postDelayed(updateTimerThread, 0);
+        timer.setVisibility(View.VISIBLE);
 
     }
 
     public void startDRspil() {
-
-
         setProgressBarIndeterminate(true);
         new AsyncTask() {
             @Override
@@ -115,6 +137,7 @@ public class Spil extends AppCompatActivity {
                 fragmentFrame(new Spil_fragment());
                 startTime = SystemClock.uptimeMillis();
                 timeHandler.postDelayed(updateTimerThread, 0);
+                timer.setVisibility(View.VISIBLE);
             }
 
         }.execute();

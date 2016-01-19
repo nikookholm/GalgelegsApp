@@ -3,14 +3,17 @@
 
     <!-- "Mark Favorite", should appear as action button if possible -->
     <item
-        android:id="@+id/action_favorite"
+        android:id="@+id/hint"
         android:icon="@drawable/hangman_main_menu_pic"
-        android:title="Hey"
+        android:title="Få et hint"
         app:showAsAction="never"/>
 
     <!-- Settings, should always be in the overflow -->
-    <item android:id="@+id/action_settings"
-        android:title="what what what"
+    <item android:id="@+id/quit"
+        android:title="Giv op"
         app:showAsAction="never"/>
-
+    <item android:id="@+id/tid"
+        android:title="0:00"
+        app:showAsAction="always"
+        app:actionViewClass="android.widget.TextView"/>
 </menu>

@@ -46,14 +46,14 @@ public class Indstillinger_Activity extends AppCompatActivity implements OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_indstillinger_);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
 
         prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         editor = prefs.edit();
 
 //        Viser nuværende bruger
         bruger = (TextView) findViewById(R.id.brugernavn);
+
         bruger.setText(prefs.getString("username", "unknown"));
 
         // Viser højeste score med nuværende bruger
@@ -69,7 +69,7 @@ public class Indstillinger_Activity extends AppCompatActivity implements OnClick
                     editor.putBoolean("drOrd", true).commit();
                 }
                 else{
-                    editor.putBoolean("drOrd", false).commit();
+                    editor.remove("drOrd").commit();
                 }
             }
         });

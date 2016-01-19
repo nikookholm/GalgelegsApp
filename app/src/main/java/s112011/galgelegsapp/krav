@@ -7,8 +7,8 @@ Der bruges mindst 6 af følgende:
 FÆRDIG - Lister og adaptere,                        + High score vises med Liste og adapter
 Færdig Application-objekt,                        - Kunne være god til at gemme noget information i
 sensorer,                                  -  Har snakket om at man kan reset ved at ryste, eller animationen skal bevæges ved ryst
-netværkskomminikation,                     + Planlagt med adgang til firebase highscore
-baggrundstråde f.eks. med AsyncTask,       + Netværkskommunikation hentes herfra
+Færdig netværkskomminikation,                     + Planlagt med adgang til firebase highscore
+Færdig baggrundstråde f.eks. med AsyncTask,       + Netværkskommunikation hentes herfra
 Færdig SharedPreferences,                         - Kan bruges til at gemme login oplysninger
 broadcast receivers,
 Færdig services,                                 + Google+ konto validering

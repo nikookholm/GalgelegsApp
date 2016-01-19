@@ -22,7 +22,6 @@ EditText name;
         setContentView(R.layout.activity_opret__bruger);
 
         name = (EditText) findViewById(R.id.name);
-        name.setText("Indtast bruger navn");
 
         accept = (Button) findViewById(R.id.accept);
         accept.setOnClickListener(this);
@@ -38,7 +37,5 @@ EditText name;
         editor.putInt("highscore",0).commit();
         Intent i = new Intent(this, MainManuActivity.class);
         startActivity(i);
-
-
     }
 }

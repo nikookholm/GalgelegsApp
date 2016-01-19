@@ -21,10 +21,8 @@ import com.google.android.gms.common.api.Status;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
 
-import s112011.galgelegsapp.App;
+import s112011.galgelegsapp.diverse.App;
 import s112011.galgelegsapp.R;
-import s112011.galgelegsapp.views.HovedmenuActivity;
-import s112011.galgelegsapp.views.Opret_Bruger;
 
 public class Login extends AppCompatActivity{
 

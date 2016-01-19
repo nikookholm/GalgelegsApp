@@ -1,4 +1,4 @@
-package s112011.galgelegsapp;
+package s112011.galgelegsapp.diverse;
 
 import android.app.Application;
 import android.content.SharedPreferences;
@@ -7,6 +7,7 @@ import android.preference.PreferenceManager;
 import com.firebase.client.Firebase;
 
 import s112011.galgelegsapp.connection.FireConn;
+import s112011.galgelegsapp.domæne.HighScoreDAO;
 import s112011.galgelegsapp.domæne.HighScoreDTO;
 import s112011.galgelegsapp.domæne.OrdDTO;
 

@@ -1,17 +1,14 @@
 package s112011.galgelegsapp.views;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import s112011.galgelegsapp.App;
+import s112011.galgelegsapp.diverse.App;
 import s112011.galgelegsapp.R;
-import s112011.galgelegsapp.views.HovedmenuActivity;
 
 public class Opret_Bruger extends AppCompatActivity implements View.OnClickListener{
 

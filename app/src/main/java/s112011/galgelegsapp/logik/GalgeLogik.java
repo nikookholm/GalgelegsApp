@@ -1,10 +1,7 @@
 package s112011.galgelegsapp.logik;
 
-import android.content.Context;
-
-import s112011.galgelegsapp.App;
+import s112011.galgelegsapp.diverse.App;
 import s112011.galgelegsapp.domæne.OrdDTO;
-import s112011.galgelegsapp.connection.FireConn;
 
 import java.io.IOException;
 import java.util.ArrayList;

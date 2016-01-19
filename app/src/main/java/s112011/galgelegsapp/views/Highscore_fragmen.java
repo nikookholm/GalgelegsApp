@@ -18,7 +18,7 @@ import s112011.galgelegsapp.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class highscore_fragment extends Fragment implements Runnable{
+public class Highscore_fragmen extends Fragment implements Runnable{
 
 
     View rod;
@@ -27,7 +27,7 @@ public class highscore_fragment extends Fragment implements Runnable{
     HighScores_Activity ha = (HighScores_Activity)getActivity();
     ArrayAdapter adapter;
 
-    public highscore_fragment() {
+    public Highscore_fragmen() {
     }
 
 

@@ -1,7 +1,6 @@
 package s112011.galgelegsapp.views;
 
 
-import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
@@ -18,11 +17,8 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
-
 import java.io.IOException;
 
-import s112011.galgelegsapp.App;
 import s112011.galgelegsapp.logik.GalgeLogik;
 import s112011.galgelegsapp.R;
 

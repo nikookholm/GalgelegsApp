@@ -1,9 +1,7 @@
 package s112011.galgelegsapp.views;
 
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,10 +9,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import s112011.galgelegsapp.App;
-import s112011.galgelegsapp.HighScoreDAO;
+import s112011.galgelegsapp.diverse.App;
+import s112011.galgelegsapp.domæne.HighScoreDAO;
 import s112011.galgelegsapp.R;
-import s112011.galgelegsapp.views.Spil;
 
 
 /**

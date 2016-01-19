@@ -2,8 +2,6 @@ package s112011.galgelegsapp.views;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -18,7 +16,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import s112011.galgelegsapp.App;
+import s112011.galgelegsapp.diverse.App;
 import s112011.galgelegsapp.R;
 
 public class Indstillinger_Activity extends AppCompatActivity implements OnClickListener {

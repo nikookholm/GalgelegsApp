@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import s112011.galgelegsapp.App;
+import s112011.galgelegsapp.diverse.App;
 import s112011.galgelegsapp.R;
 
 

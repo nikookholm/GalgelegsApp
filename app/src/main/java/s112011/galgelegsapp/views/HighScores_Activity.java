@@ -12,7 +12,7 @@ import com.firebase.client.ValueEventListener;
 
 import java.util.ArrayList;
 
-import s112011.galgelegsapp.HighScoreDAO;
+import s112011.galgelegsapp.domæne.HighScoreDAO;
 import s112011.galgelegsapp.domæne.HighScoreDTO;
 import s112011.galgelegsapp.R;
 
@@ -28,7 +28,7 @@ public class HighScores_Activity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        Fragment frag = new highscore_fragment();
+        Fragment frag = new Highscore_fragmen();
         getSupportFragmentManager()
                 .beginTransaction()
                 .add(R.id.frame, frag)

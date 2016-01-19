@@ -14,11 +14,9 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Random;
 
-import s112011.galgelegsapp.App;
-import s112011.galgelegsapp.HighScoreDAO;
+import s112011.galgelegsapp.domæne.HighScoreDAO;
 import s112011.galgelegsapp.domæne.HighScoreDTO;
 import s112011.galgelegsapp.domæne.OrdDTO;
-import s112011.galgelegsapp.views.highscore_fragment;
 
 
 /**

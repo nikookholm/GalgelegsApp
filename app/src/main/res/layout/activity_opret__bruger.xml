@@ -22,6 +22,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:gravity="top"
+        android:maxLength="22"
         android:textColor="#ffffff"
         android:textColorHint="#ffffff"/>
 

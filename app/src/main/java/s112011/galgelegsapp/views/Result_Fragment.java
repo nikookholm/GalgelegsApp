@@ -60,12 +60,12 @@ public class Result_Fragment extends Fragment {
     }
 
     public int setResultImageResource(){
-       if(spil.logik.erSpilletTabt()){
+        if(spil.logik.erSpilletTabt()){
             return R.mipmap.finalpic;
         }
         else{
-           return R.mipmap.happy;
-       }
+            return R.mipmap.happy;
+        }
     }
 
 

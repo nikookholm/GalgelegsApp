@@ -13,7 +13,7 @@ import s112011.galgelegsapp.R;
 
 public class Opret_Bruger extends AppCompatActivity implements View.OnClickListener{
 
-EditText name;
+    EditText name;
     Button accept;
 
     @Override
@@ -30,15 +30,22 @@ EditText name;
 
     @Override
     public void onClick(View v) {
-       if(name.getText().toString().length() >= 1) {
+        if(name.getText().toString().length() >= 1) {
+            String text = name.getText().toString().replace(" ","");
+            if(!text.toString().equals(text)){
+                Toast.makeText(this, "Brugernavnet må ikke indeholde mellemrum", Toast.LENGTH_LONG)
+                        .show();
+            }
 
-           App.editor.putString("username", name.getText().toString()).commit();
-           App.editor.putInt("highscore", 0).commit();
-           Intent i = new Intent(this, HovedmenuActivity.class);
-           startActivity(i);
-           finish();
-       }else{
-           Toast.makeText(this, "Bruger navn skal indeholde mere end 1 tegn", Toast.LENGTH_SHORT);
-       }
+            App.editor.putString("username", name.getText().toString()).commit();
+            App.editor.putInt("highscore", 0).commit();
+            Intent i = new Intent(this, HovedmenuActivity.class);
+            startActivity(i);
+            finish();
+        }else{
+            Toast.makeText(this, "Bruger navn skal indeholde mere end 1 tegn", Toast.LENGTH_SHORT)
+                    .show();
+
+        }
     }
 }

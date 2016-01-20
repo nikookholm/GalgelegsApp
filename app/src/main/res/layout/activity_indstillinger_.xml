@@ -133,6 +133,7 @@
                 android:layout_weight="1"
                 android:imeOptions="actionDone"
                 android:singleLine="true"
+                android:maxLength="22"
                 android:text=""
                 android:visibility="gone"
                 android:textColor="#ffffff"

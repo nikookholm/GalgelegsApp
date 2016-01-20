@@ -10,20 +10,20 @@ public class OrdDTO implements Serializable {
     // Tom konstruktør som er påkrævet
     public OrdDTO(){    }
     public OrdDTO(String ord, String kategori, String hint){
-    this.ord = ord;
-    this.kategori = kategori;
-    this.hint = hint;
+        this.ord = ord;
+        this.kategori = kategori;
+        this.hint = hint;
     }
 
 
     public String getOrd(){
-    return ord;
-}
+        return ord;
+    }
     public String getKategori(){
-    return kategori;
-}
+        return kategori;
+    }
     public String getHint(){
-    return hint;
+        return hint;
     }
 }
 

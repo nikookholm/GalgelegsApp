@@ -31,7 +31,7 @@ public class App extends Application {
 
         fc = new FireConn();
         hsDAO = new HighScoreDAO();
-uploadDefaultHighscore();
+        uploadDefaultHighscore();
 //        bs = new Firebase("https://galgeapp.firebaseio.com/ordlist/"); // bruges kun hvis der skal initialiseres ny database
 
         prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());

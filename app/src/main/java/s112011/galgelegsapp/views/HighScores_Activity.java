@@ -18,7 +18,7 @@ import s112011.galgelegsapp.R;
 
 public class HighScores_Activity extends AppCompatActivity {
 
-   static HighScoreDAO highScoresDAO = new HighScoreDAO();
+    static HighScoreDAO highScoresDAO = new HighScoreDAO();
     ArrayList<HighScoreDTO> highScores = highScoresDAO.getScores();
 
     @Override

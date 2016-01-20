@@ -98,7 +98,7 @@ public class Login extends AppCompatActivity{
             }
         }
     }
-//    Håndtere Informationen fra google login
+    //    Håndtere Informationen fra google login
     private void handleSignInResult(GoogleSignInResult result) {
         Log.d(TAG, "handleSignInResult:" + result.isSuccess());
         if (result.isSuccess()) {

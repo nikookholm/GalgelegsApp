@@ -106,7 +106,7 @@ public class FireConn {
         }
         if (!userExists) {
 
-                        fb.child(hs.getName().replace(".", " ")).setValue(hs);
+            fb.child(hs.getName().replace(".", " ")).setValue(hs);
         }
     }
 
@@ -164,7 +164,7 @@ public class FireConn {
 
         }
 
-return new OrdDTO(drOrd.get(new Random().nextInt(drOrd.size())), "findes ikke" , "findes ikke");
+        return new OrdDTO(drOrd.get(new Random().nextInt(drOrd.size())), "findes ikke" , "findes ikke");
     }
 
 

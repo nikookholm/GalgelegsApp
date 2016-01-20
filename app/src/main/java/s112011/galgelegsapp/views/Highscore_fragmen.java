@@ -34,11 +34,11 @@ public class Highscore_fragmen extends Fragment implements Runnable{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-      rod = inflater.inflate(R.layout.highscore_fragment, container, false);
+        rod = inflater.inflate(R.layout.highscore_fragment, container, false);
 
         list = (ListView) rod.findViewById(R.id.listView2);
 
-         ha.highScoresDAO.observatører.add(this);
+        ha.highScoresDAO.observatører.add(this);
         run();
 
 
@@ -56,19 +56,19 @@ public class Highscore_fragmen extends Fragment implements Runnable{
     public void run() {
 
         adapter = new ArrayAdapter<HighScoreDTO>(getActivity(), R.layout.highscore_elements,R.id.rank, ha.highScoresDAO.getScores()){
-           @Override
-        public View getView(int position,View cachedView, ViewGroup parent ){
-           View view =  super.getView(position, cachedView,parent);
-               TextView rank = (TextView) view.findViewById(R.id.rank);
-               rank.setText("" + (position +1));
+            @Override
+            public View getView(int position,View cachedView, ViewGroup parent ){
+                View view =  super.getView(position, cachedView,parent);
+                TextView rank = (TextView) view.findViewById(R.id.rank);
+                rank.setText("" + (position +1));
 
-               TextView name = (TextView) view.findViewById(R.id.playerName);
-               name.setText(ha.highScoresDAO.getScores().get(position).getName());
+                TextView name = (TextView) view.findViewById(R.id.playerName);
+                name.setText(ha.highScoresDAO.getScores().get(position).getName());
 
-               TextView points = (TextView) view.findViewById(R.id.antalPoint);
-               points.setText("" + ha.highScoresDAO.getScores().get(position).getPoints());
-               return view;
-           }
+                TextView points = (TextView) view.findViewById(R.id.antalPoint);
+                points.setText("" + ha.highScoresDAO.getScores().get(position).getPoints());
+                return view;
+            }
 
 
 

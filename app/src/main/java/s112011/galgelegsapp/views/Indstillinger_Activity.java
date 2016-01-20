@@ -1,7 +1,6 @@
 package s112011.galgelegsapp.views;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,8 +9,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
-import android.view.inputmethod.InputMethod;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -101,6 +98,7 @@ public class Indstillinger_Activity extends AppCompatActivity implements OnClick
                     if (actionId == EditorInfo.IME_ACTION_DONE) {
 
                         String navn = brugerNavn.getText().toString();
+
                         if ((navn.length() != 0 )&& (navn.matches("[a-zA-Z]+\\.?"))) {
                             App.editor.putString("username", brugerNavn.getText().toString()).commit();
                             App.editor.putInt("highscore", 0).commit();
@@ -108,9 +106,10 @@ public class Indstillinger_Activity extends AppCompatActivity implements OnClick
                             brugerNavn.setVisibility(View.GONE);
                             bruger.setText(navn);
                             highscore.setText("0");
-                            Toast.makeText(getApplicationContext(), App.prefs.getString("username", "ukendt"), Toast.LENGTH_SHORT).show();
-                        } else {
-                            Toast.makeText(getApplicationContext(), "Bruger navn skal indeholde mere end 1 tegn", Toast.LENGTH_SHORT);
+                            Toast.makeText(a, App.prefs.getString("username", "ukendt"), Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            Toast.makeText(a, "Brugernavnet må ikke indeholde mellemrum", Toast.LENGTH_SHORT).show();
                         }
 
                         return true;

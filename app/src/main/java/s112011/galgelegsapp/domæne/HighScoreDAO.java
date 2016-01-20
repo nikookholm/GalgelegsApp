@@ -18,7 +18,7 @@ public class HighScoreDAO {
 
     public HighScoreDAO(){
 
-        }
+    }
 
 
     public ArrayList<HighScoreDTO> getScores(){

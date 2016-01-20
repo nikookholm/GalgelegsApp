@@ -19,7 +19,8 @@
         android:id="@+id/playerName"
         android:textSize="25dp"
        android:text="navn"
-        android:layout_toRightOf="@+id/rank" />
+        android:layout_toRightOf="@+id/rank"
+        android:textColor="#ffffff"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -28,6 +29,7 @@
         android:text=" antalPoint"
         android:textSize="25dp"
         android:layout_marginLeft="10dp"
-        android:layout_toRightOf="@+id/playerName" />
+        android:layout_toRightOf="@+id/playerName"
+        android:textColor="#ffffff"/>
 
 </RelativeLayout>

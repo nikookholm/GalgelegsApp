@@ -10,7 +10,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".views.Login"
-                android:background="#9E9E9E">
+    android:background="#6577ff">
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/sign_in_button"
@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/offlineButton"
         android:layout_centerHorizontal="true"
-        android:background="#683333"
+        android:background="#6577ff"
         android:layout_marginBottom="100dp"/>
 
     <Button

@@ -11,26 +11,34 @@
         android:layout_width="230dp"
         android:layout_height="180dp"
         android:id="@+id/result"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1" />
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:id="@+id/points"
         android:text="points"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:textSize="40dp"
+        android:layout_weight="0"
+        android:textStyle="italic"
+        android:textColor="#ffffff" />
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:id="@+id/text"
         android:text="text"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:textSize="40dp"
+        android:textColor="#ffffff" />
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:id="@+id/time"
         android:text="time"
         android:textAlignment="center"
-        />
+        android:textSize="40dp"
+        android:textColor="#ffffff" />
     
 
 

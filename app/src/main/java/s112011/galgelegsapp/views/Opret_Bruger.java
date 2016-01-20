@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import s112011.galgelegsapp.diverse.App;
 import s112011.galgelegsapp.R;
@@ -29,11 +30,14 @@ EditText name;
 
     @Override
     public void onClick(View v) {
+       if(name.getText().toString().length() >= 1) {
 
-
-       App.editor.putString("username", name.getText().toString()).commit();
-        App.editor.putInt("highscore", 0).commit();
-        Intent i = new Intent(this, HovedmenuActivity.class);
-        startActivity(i);
+           App.editor.putString("username", name.getText().toString()).commit();
+           App.editor.putInt("highscore", 0).commit();
+           Intent i = new Intent(this, HovedmenuActivity.class);
+           startActivity(i);
+       }else{
+           Toast.makeText(this, "Bruger navn skal indeholde mere end 1 tegn", Toast.LENGTH_SHORT);
+       }
     }
 }

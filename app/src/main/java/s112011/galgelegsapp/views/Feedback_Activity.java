@@ -1,6 +1,9 @@
 package s112011.galgelegsapp.views;
 
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.LayerDrawable;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -37,8 +40,11 @@ public class Feedback_Activity extends AppCompatActivity implements View.OnClick
         sendKnap = (Button) findViewById(R.id.sendKnap);
         sendKnap.setOnClickListener(this);
 
-rating = (RatingBar) findViewById(R.id.rating);
+        rating = (RatingBar) findViewById(R.id.rating);
         rating.setRating((float) 3);
+
+        LayerDrawable stars = (LayerDrawable) rating.getProgressDrawable();
+        stars.getDrawable(2).setColorFilter(Color.YELLOW, PorterDuff.Mode.SRC_ATOP);
 
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -54,9 +60,10 @@ rating = (RatingBar) findViewById(R.id.rating);
             finish();
         }
     }
+
     @Override
-    public boolean onOptionsItemSelected(MenuItem menu){
-        if (menu.getItemId() == android.R.id.home){
+    public boolean onOptionsItemSelected(MenuItem menu) {
+        if (menu.getItemId() == android.R.id.home) {
             finish();
         }
         return false;

@@ -68,6 +68,9 @@ public class Spil_fragment extends Fragment implements SensorEventListener, View
         synligtOrdText.setText(spil.logik.getSynligtOrd());
 
 //        sManager = (SensorManager) getSystem
+        sManager = (SensorManager) getActivity().getSystemService(Context.SENSOR_SERVICE);
+
+        sManager.registerListener(this, sManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_FASTEST);
 
         return root;
     }
@@ -108,13 +111,12 @@ public class Spil_fragment extends Fragment implements SensorEventListener, View
 
             float accelerationSquareRoot = (x * x + y * y + z * z) / (SensorManager.GRAVITY_EARTH);
 
-            if(accelerationSquareRoot>=2){
-                this.spil.findViewById(R.id.quit);
+            if(accelerationSquareRoot>=12*9){
+                spil.logik.afslutSpil();
+                spil.fragmentFrame(new Result_Fragment());
             }
         }
-        sManager = (SensorManager) getActivity().getSystemService(Context.SENSOR_SERVICE);
 
-        sManager.registerListener(this, sManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_FASTEST);
     }
 
     @Override

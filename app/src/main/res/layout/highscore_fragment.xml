@@ -11,19 +11,13 @@
         android:layout_height="wrap_content"
         android:text="High Scores"
         android:textSize="25dp"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:textColor="#ffffff" />
 
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/listView2"
         android:layout_weight="1" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="RELOAD"
-        android:id="@+id/reload"
-        android:layout_gravity="right" />
 
 </LinearLayout>

@@ -74,12 +74,12 @@ public class Spil extends AppCompatActivity {
 
                             }
                         })
-                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .setIcon(R.mipmap.finalpic)
                         .show();
 
                 break;
             case R.id.quit:
-                Toast.makeText(getApplicationContext(), "Quit", Toast.LENGTH_SHORT).show();
+
                 logik.afslutSpil();
                 fragmentFrame(new Result_Fragment());
                 break;

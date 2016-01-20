@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
 import com.firebase.client.Firebase;
+import com.google.android.gms.common.api.GoogleApiClient;
 
 import s112011.galgelegsapp.connection.FireConn;
 import s112011.galgelegsapp.domæne.HighScoreDAO;
@@ -77,7 +78,6 @@ uploadDefaultHighscore();
         bs.child(g.getName()).setValue(g);
         bs.child(h.getName()).setValue(h);
     }
-
 
 
 }

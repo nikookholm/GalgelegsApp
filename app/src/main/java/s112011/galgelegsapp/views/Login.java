@@ -26,7 +26,7 @@ import s112011.galgelegsapp.R;
 
 public class Login extends AppCompatActivity{
 
-    private Button offlineButton;
+    private Button loginButton;
     GoogleSignInOptions googleOp;
     ConnectionCallbacks connectionCallbacks;
     GoogleApiClient googleApiClient;
@@ -46,8 +46,8 @@ public class Login extends AppCompatActivity{
 
 
 
-        offlineButton = (Button) findViewById(R.id.offlineButton);
-        offlineButton.setOnClickListener(new offlineListener());
+        loginButton = (Button) findViewById(R.id.offlineButton);
+        loginButton.setOnClickListener(new offlineListener());
 
         // Anmoder om bruger id og email for at logge ind
         googleOp = new GoogleSignInOptions.Builder(GoogleSignInOptions.
@@ -158,7 +158,7 @@ public class Login extends AppCompatActivity{
     private class offlineListener implements View.OnClickListener {
         @Override
         public void onClick(View v) {
-            if (v == offlineButton) {
+            if (v == loginButton) {
                 Intent goToMainMenu = new Intent(a , Opret_Bruger.class);
                 startActivity(goToMainMenu);
                 finish();

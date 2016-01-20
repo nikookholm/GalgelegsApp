@@ -129,12 +129,12 @@ public class Indstillinger_Activity extends AppCompatActivity implements OnClick
 
             if (v == signout) {
 //                System.out.println(login.googleApiClient.isConnected());
-//                    login.VerifyLogOut();
-//                login.connectionCallbacks.onConnected(Bundle.EMPTY);
-//                login.signOut();
+                    login.VerifyLogOut();
+                login.connectionCallbacks.onConnected(Bundle.EMPTY);
+                login.signOut();
                 Intent goToMainMenu = new Intent(a, Login.class);
                 startActivity(goToMainMenu);
-                System.out.println("vi er inde");
+
             }
         }
     }
@@ -146,4 +146,6 @@ public class Indstillinger_Activity extends AppCompatActivity implements OnClick
         }
         return false;
     }
+
+
 }

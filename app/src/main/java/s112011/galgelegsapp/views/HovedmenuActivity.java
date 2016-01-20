@@ -1,6 +1,8 @@
 package s112011.galgelegsapp.views;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -47,5 +49,24 @@ public class HovedmenuActivity extends AppCompatActivity implements View.OnClick
             Intent visFeedbackActivty = new Intent(this, Feedback_Activity.class);
             startActivity(visFeedbackActivty);
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setTitle("Forlad spillet?")
+                .setMessage("Ønsker du at forlade spillet?")
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+                })
+                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                })
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .show();
     }
 }

@@ -88,6 +88,7 @@ public class Login extends AppCompatActivity{
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
             Intent goToMainMenuActivity = new Intent(a, HovedmenuActivity.class);
             startActivity(goToMainMenuActivity);
+            finish();
 
             if(result.isSuccess()){
                 googleSignInAccount = result.getSignInAccount();
@@ -160,7 +161,7 @@ public class Login extends AppCompatActivity{
             if (v == offlineButton) {
                 Intent goToMainMenu = new Intent(a , Opret_Bruger.class);
                 startActivity(goToMainMenu);
-
+                finish();
             }
         }
     }

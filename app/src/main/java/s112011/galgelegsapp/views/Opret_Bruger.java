@@ -36,6 +36,7 @@ EditText name;
            App.editor.putInt("highscore", 0).commit();
            Intent i = new Intent(this, HovedmenuActivity.class);
            startActivity(i);
+           finish();
        }else{
            Toast.makeText(this, "Bruger navn skal indeholde mere end 1 tegn", Toast.LENGTH_SHORT);
        }

@@ -44,7 +44,7 @@ public class Result_Fragment extends Fragment {
 
         // viser ordet der skulle gættes
         word = (TextView) root.findViewById(R.id.text);
-        word.setText("Ordet der skulle gættes var " + spil.logik.getOrdet());
+        word.setText("Ord: " + spil.logik.getOrdet());
 
         // Viser hvor mange sekunder der blev brugt
         time = (TextView) root.findViewById(R.id.time);

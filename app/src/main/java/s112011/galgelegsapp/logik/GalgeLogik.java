@@ -110,6 +110,7 @@ public class GalgeLogik implements Runnable {
     private void opdaterSynligtOrd() {
         synligtOrd = "";
         spilletErVundet = true;
+        spilletErIGang = false;
         for (int n = 0; n <
                 ordet.getOrd().length(); n++) {
             String bogstav = ordet.getOrd().substring(n, n + 1);
@@ -118,6 +119,7 @@ public class GalgeLogik implements Runnable {
             } else {
                 synligtOrd = synligtOrd + "_ ";
                 spilletErVundet = false;
+                spilletErIGang = true;
             }
         }
     }
@@ -127,7 +129,7 @@ public class GalgeLogik implements Runnable {
         if (bogstav.length() != 1) return;
         System.out.println("Der gættes på bogstavet: " + bogstav);
         if (brugteBogstaver.contains(bogstav)) return;
-        if (spilletErVundet || spilletErTabt) return;
+        if (spilletErVundet || spilletErTabt)  return;
 
         brugteBogstaver.add(bogstav);
 
@@ -141,6 +143,7 @@ public class GalgeLogik implements Runnable {
             antalForkerteBogstaver = antalForkerteBogstaver + 1;
             if (antalForkerteBogstaver > 6) {
                 spilletErTabt = true;
+                spilletErIGang = false;
             }
         }
         opdaterSynligtOrd();
@@ -234,6 +237,7 @@ public int getPoint(){
 
     public void afslutSpil(){
         spilletErTabt = true;
+        spilletErIGang = false;
 
     }
 }

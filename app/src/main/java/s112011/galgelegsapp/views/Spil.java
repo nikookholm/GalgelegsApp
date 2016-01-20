@@ -58,28 +58,32 @@ public class Spil extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
         switch (item.getItemId() ) {
 
-            case android.R.id.home :
-                new AlertDialog.Builder(this)
-                        .setTitle("Forlad spillet?")
-                        .setMessage("Ønsker du at forlade spillet?")
-                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-                                finish();
-                            }
-                        })
-                        .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
+                  case android.R.id.home:
+                      if(logik.erSpilletErIGang()) {
+                          new AlertDialog.Builder(this)
+                                  .setTitle("Forlad spillet?")
+                                  .setMessage("Ønsker du at forlade spillet?")
+                                  .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                                      public void onClick(DialogInterface dialog, int which) {
+                                          finish();
+                                      }
+                                  })
+                                  .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                                      public void onClick(DialogInterface dialog, int which) {
 
-                            }
-                        })
-                        .setIcon(R.mipmap.finalpic)
-                        .show();
+                                      }
+                                  })
+                                  .setIcon(R.mipmap.finalpic)
+                                  .show();
+                      }else{
+                          finish();
+                      }
 
                 break;
             case R.id.quit:
-
                 logik.afslutSpil();
                 fragmentFrame(new Result_Fragment());
                 break;

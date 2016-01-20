@@ -8,12 +8,15 @@ import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.content.Context;
 
 import s112011.galgelegsapp.R;
 
@@ -30,6 +33,8 @@ public class Spil_fragment extends Fragment implements SensorEventListener, View
     private View root;
     private SensorManager sManager;
     private long lastUpdate;
+    private Menu menu;
+
 
     // int array for billedeIDer
     private int[] galgeBilled = new int[]{R.mipmap.galge, R.mipmap.forkert1, R.mipmap.forkert2, R.mipmap.forkert3,
@@ -68,7 +73,6 @@ public class Spil_fragment extends Fragment implements SensorEventListener, View
     }
 
 
-
     @Override
     public void onClick(View v) {
         opdaterFragment(v);
@@ -93,38 +97,25 @@ public class Spil_fragment extends Fragment implements SensorEventListener, View
     @Override
     public void onSensorChanged(SensorEvent event) {
 
-        float[] values = event.values;
+        if(event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
 
-        // Bevægelser
+            float[] values = event.values;
+            // Bevægelser
 
-        float x = values[0];
-        float y = values[1];
-        float z = values [3];
+            float x = values[0];
+            float y = values[1];
+            float z = values [2];
 
-        float accelerationSquareRoot = (x * x + y * y + z * z) / (SensorManager.GRAVITY_EARTH);
+            float accelerationSquareRoot = (x * x + y * y + z * z) / (SensorManager.GRAVITY_EARTH);
 
-        long actualTime = event.timestamp;
-
-        if(accelerationSquareRoot >= 2){
-            if( actualTime - lastUpdate < 200){
-                return;
+            if(accelerationSquareRoot>=2){
+                this.spil.findViewById(R.id.quit);
             }
         }
-        lastUpdate = actualTime;
-//
-//       Toast toast = Toast.makeText(this, "Du gav op", Toast.LENGTH_LONG).show());
+        sManager = (SensorManager) getActivity().getSystemService(Context.SENSOR_SERVICE);
 
-        }
-
-        String shake;
-//        int sensorType = event.sensor.getType();
-
-//        if(sensorType==Sensor.TYPE_ACCELEROMETER){
-//            shake =
-//w
-//        }
-
-//    }
+        sManager.registerListener(this, sManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_FASTEST);
+    }
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int i) {

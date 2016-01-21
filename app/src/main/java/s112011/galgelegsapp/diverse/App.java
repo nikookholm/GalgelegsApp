@@ -2,6 +2,7 @@ package s112011.galgelegsapp.diverse;
 
 import android.app.Application;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.preference.PreferenceManager;
 
 import com.firebase.client.Firebase;
@@ -31,7 +32,7 @@ public class App extends Application {
 
         fc = new FireConn();
         hsDAO = new HighScoreDAO();
-        uploadDefaultHighscore();
+//        uploadDefaultHighscore();
 //        bs = new Firebase("https://galgeapp.firebaseio.com/ordlist/"); // bruges kun hvis der skal initialiseres ny database
 
         prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());

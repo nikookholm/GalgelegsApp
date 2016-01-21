@@ -32,8 +32,9 @@ public class Spil_fragment extends Fragment implements SensorEventListener, View
     private Spil spil;
     private View root;
     private SensorManager sManager;
-    private long lastUpdate;
-    private Menu menu;
+
+    private TextView info;
+
 
 
     // int array for billedeIDer
@@ -72,6 +73,8 @@ public class Spil_fragment extends Fragment implements SensorEventListener, View
 
         sManager.registerListener(this, sManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_FASTEST);
 
+        info = (TextView) root.findViewById(R.id.info);
+        info.setText("Du kan give op ved at ryste din enhed, og du kan få et hint oppe i menuen");
         return root;
     }
 
